@@ -1,21 +1,13 @@
-function App() {
+import React from 'react'
+import { Container } from './components/Container'
+import { Sidebar } from './components/Sidebar'
+
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='global-container'>
+      <Sidebar />
+      <Container />
     </div>
-  );
+  )
 }
 
-export default App;

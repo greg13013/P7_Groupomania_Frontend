@@ -1,0 +1,67 @@
+//Header
+header{
+    width: 100%;
+    position: fixed;
+    background-color: blue;
+    height: $tailleHeader;
+}
+
+
+//SideBar
+.sideBar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    border-right: 2px solid #e3e8f0;
+    background-color: #fdfdff;
+    line-height: normal;
+}
+
+.sideBar-logo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+    padding: 30px;
+    
+    img {
+        cursor: pointer;
+        width: 100%;
+        // height: 20px;
+    }
+
+    h1{
+        color: black;
+        margin-left: 10px;
+        font-size: 30px;
+        font-weight: 500;
+    }
+}
+
+.bloc-link {
+    display: flex;
+    align-items: center;
+    font-weight: 300;
+    color: #838f9f;
+    text-decoration: none;
+    padding: 20px 30px;
+    &:hover{
+        background: #f8f8f8;
+    }
+
+    i {
+        line-height: normal !important;
+        height: fit-content !important;
+    }
+    &.active{
+        background: #e9e9e9;
+        .nav-links {
+            color: #35b970;
+            font-weight: 500;
+        }
+    }
+}
+
+.nav-links{
+    margin-left: 14px;
+}

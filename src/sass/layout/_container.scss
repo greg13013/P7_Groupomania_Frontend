@@ -1,0 +1,18 @@
+.main-container{
+    grid-column: 2;
+    margin: $tailleHeader+10px 1rem 1rem 1rem; //ajout 10px margintop
+}
+
+@include responsive(mobile){
+    .global-container{
+        grid-template-columns: 1fr;
+    }
+
+    .side-nav{
+        display: none;
+    }
+
+    .main-container{
+        grid-column: 1;
+    }
+}
