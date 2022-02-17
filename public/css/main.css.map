@@ -1,0 +1,16 @@
+{
+    "version": 3,
+    "mappings": "AEAA,OAAO,CAAC,4FAAI;ACAZ,uCAAuC;AAevC,AAAA,CAAC,CAAC;EACF,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,UAAU;CACnB",
+    "sources": [
+        "../../src/sass/main.scss",
+        "../../src/sass/utils/_variables.scss",
+        "../../src/sass/utils/_polices.scss",
+        "../../src/sass/utils/_global.scss",
+        "../../src/sass/utils/_mixins.scss",
+        "../../src/sass/layout/_navigation.scss",
+        "../../src/sass/layout/_container.scss",
+        "../../src/sass/layout/_footer.scss"
+    ],
+    "names": [],
+    "file": "main.css"
+}
