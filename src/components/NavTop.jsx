@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { ModalConnexion } from "./ModalConnexion";
 
 export const NavTop = () => {
   return (
@@ -13,10 +14,8 @@ export const NavTop = () => {
         <i className="fa-regular fa-user"></i>
         <span className="nav-links">Profil</span>
       </NavLink>
-      <div className="item">
-        <i className="fa-regular fa-user"></i>
-        <span className="nav-links">Connexion</span>
-      </div>
+
+      <ModalConnexion />
     </header>
   );
 };
