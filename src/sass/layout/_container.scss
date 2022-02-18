@@ -1,6 +1,6 @@
 .main-container{
     grid-column: 2;
-    margin: 1rem;
+    margin: 2rem !important;
 }
 
 @include responsive(mobile){

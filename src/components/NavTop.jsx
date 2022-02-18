@@ -15,6 +15,11 @@ export const NavTop = () => {
         <span className="nav-links">Profil</span>
       </NavLink>
 
+      <NavLink activeclass="active" to="/creerCompte" className="item">
+        <i className="fa-regular fa-user"></i>
+        <span className="nav-links">Créer un compte</span>
+      </NavLink>
+
       <ModalConnexion />
     </header>
   );
