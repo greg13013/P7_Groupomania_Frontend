@@ -1,6 +1,6 @@
 .main-container{
     grid-column: 2;
-    margin: $tailleHeader+10px 1rem 1rem 1rem; //ajout 10px margintop
+    margin: 1rem;
 }
 
 @include responsive(mobile){
@@ -8,7 +8,7 @@
         grid-template-columns: 1fr;
     }
 
-    .side-nav{
+    .sideBar{
         display: none;
     }
 
