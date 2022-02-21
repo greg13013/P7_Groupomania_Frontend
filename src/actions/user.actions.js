@@ -4,6 +4,8 @@ export const LOGIN = "LOGIN";
 export const SIGNUP = "SIGNUP";
 export const GET_USER = "GET_USER";
 
+export const LOGOUT = "LOGOUT";
+
 
 export const login = (user) => {
     return (dispatch) => {
@@ -12,6 +14,12 @@ export const login = (user) => {
                 dispatch({ type: LOGIN, payload: res.data })
             })
             .catch(err => console.log(err))
+    }
+}
+
+export const logout = () => {
+    return (dispatch) => {
+        return dispatch({type: LOGOUT, payload: {}})
     }
 }
 

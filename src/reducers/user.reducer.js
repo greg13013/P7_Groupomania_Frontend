@@ -1,4 +1,4 @@
-import { GET_USER, LOGIN, SIGNUP } from "../actions/user.actions";
+import { GET_USER, LOGIN, LOGOUT, SIGNUP } from "../actions/user.actions";
 
 const initialState = {};
 
@@ -7,6 +7,8 @@ export default function userReducer(state = initialState, action){
         case LOGIN:
             console.log('login action : ', action)
             return action.payload
+        case LOGOUT:
+            return initialState
         case SIGNUP:
             console.log('signup action : ', action)
             return action.payload

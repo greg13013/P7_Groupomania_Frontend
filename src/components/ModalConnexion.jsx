@@ -6,8 +6,8 @@ import { login } from "../actions/user.actions";
 export const ModalConnexion = () => {
   const [open, setOpen] = useState(false);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const dispatch = useDispatch();
 
@@ -15,15 +15,17 @@ export const ModalConnexion = () => {
     e.preventDefault();
 
     if (email && password) {
+
       const user = {
         email,
-        password,
-      };
+        password
+      }
 
-      await dispatch(login(user));
-      setOpen(false);
+     await dispatch(login(user))
+      setOpen(false)
     }
-  };
+
+  }
 
   return (
     <Modal
@@ -41,26 +43,17 @@ export const ModalConnexion = () => {
       <Modal.Content>
         <Modal.Description>
           <form onSubmit={sendForm}>
-            <div className="ui input">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
 
-            <div className="ui input">
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
+          <div className="ui input">
+            <input type="email" name="email" placeholder="Email" onChange={ e => setEmail(e.target.value)} />
+          </div>
 
-            <Button primary>Envoyer</Button>
-          </form>
+          <div className="ui input">
+            <input type="password" name="password" placeholder="Password" onChange={ e => setPassword(e.target.value)} />
+          </div>
+
+          <Button primary>Envoyer</Button>
+        </form>
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
