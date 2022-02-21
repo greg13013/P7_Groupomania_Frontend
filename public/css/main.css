@@ -28,13 +28,23 @@ header {
   font-size: 20px;
 }
 
-header .item {
+header .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .menu .item {
   padding: 2rem;
   cursor: pointer;
   color: white;
 }
 
-header .item:hover {
+header .menu .item a {
+  color: white;
+}
+
+header .menu .item:hover {
   -webkit-box-shadow: 0px 4px 0px 0px #7baeff;
           box-shadow: 0px 4px 0px 0px #7baeff;
 }

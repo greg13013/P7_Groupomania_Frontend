@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
 import { Accueil } from '../pages/Accueil';
-import { CreerCompte } from '../pages/CreerCompte';
+import { FormCreerCompte } from '../pages/FormCreerCompte';
 import { Profil } from '../pages/Profil';
 import { NavTop } from './NavTop'
 
@@ -13,7 +13,7 @@ export const Container = () => {
             <Routes>
                 <Route path="" element={<Accueil />} />
                 <Route path="/profil" element={<Profil />} />
-                <Route path="/creerCompte" element={<CreerCompte />} />
+                <Route path="/creerCompte" element={<FormCreerCompte />} />
             </Routes>
             </main>
         </div>

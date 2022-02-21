@@ -1,8 +1,29 @@
 import React, { useState } from "react";
-import { Button, Header, Modal } from "semantic-ui-react";
+import { useDispatch } from "react-redux";
+import { Button, Modal } from "semantic-ui-react";
+import { login } from "../actions/user.actions";
 
 export const ModalConnexion = () => {
   const [open, setOpen] = useState(false);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
+
+  const sendForm = async (e) => {
+    e.preventDefault();
+
+    if (email && password) {
+      const user = {
+        email,
+        password,
+      };
+
+      await dispatch(login(user));
+      setOpen(false);
+    }
+  };
 
   return (
     <Modal
@@ -19,22 +40,40 @@ export const ModalConnexion = () => {
       <Modal.Header>Connexion</Modal.Header>
       <Modal.Content>
         <Modal.Description>
-          <Header>Default Profile Image</Header>
-          <p>We've found the following gravatar image associated with your e-mail address.</p>
-          <p>Is it okay to use this photo?</p>
+          <form onSubmit={sendForm}>
+            <div className="ui input">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+
+            <div className="ui input">
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+
+            <Button primary>Envoyer</Button>
+          </form>
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
         <Button color="black" onClick={() => setOpen(false)}>
-          Nope
+          Fermer
         </Button>
-        <Button
+        {/* <Button
           content="Yep, that's me"
           labelPosition="right"
           icon="checkmark"
           onClick={() => setOpen(false)}
           positive
-        />
+        /> */}
       </Modal.Actions>
     </Modal>
   );
