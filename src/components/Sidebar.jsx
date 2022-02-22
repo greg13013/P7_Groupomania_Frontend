@@ -15,7 +15,7 @@ export const Sidebar = () => {
         if (user.isLog) dispatch(getUser(user.userId, user.token))
         
     }, [user.isLog])
-    
+
     console.log(user);
     
     return (
@@ -26,8 +26,14 @@ export const Sidebar = () => {
                     <img src='img/logo_groupomania.png' alt='logo groupomania' />
                 </div>
 
-                <div style={{wordBreak: 'break-all'}}>{user.token}</div>
+                <div className="sideBar-user">
 
+                {user.isLog ? <img src={user.image} alt="logo utilisateur" /> : null }
+                <div style={{wordBreak: 'break-all'}}>{user.username}</div>
+                <div style={{wordBreak: 'break-all'}}>{user.email}</div>
+
+                </div>
+                
                 <div activeclass="active" className='bloc-link'>
                     <span className='nav-links'>Créer un post</span>
                 </div>

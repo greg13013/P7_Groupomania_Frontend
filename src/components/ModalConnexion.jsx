@@ -48,8 +48,8 @@ export const ModalConnexion = () => {
     >
       <Modal.Header>Connexion</Modal.Header>
       <Modal.Content>
-        <Modal.Description>
-          <form onSubmit={sendForm}>
+        <Modal.Description className="ui text container centered">
+          <form onSubmit={sendForm} className='formLogin'>
 
           <div className="ui input">
             <input type="email" name="email" placeholder="Email" onChange={ e => setEmail(e.target.value)} />

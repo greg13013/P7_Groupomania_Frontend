@@ -40,7 +40,7 @@ export const NavTop = () => {
       {user.isLog ? (
         <div className="menu">
           <div className="item" onClick={() => dispatch(logout())}>
-            <i className="fa-regular fa-user"></i>
+            <i className="fa-solid fa-right-to-bracket"></i>
             <span className="nav-links">Déconnexion</span>
           </div>
         </div>
