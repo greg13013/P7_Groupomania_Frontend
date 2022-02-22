@@ -14,6 +14,7 @@ export const Sidebar = () => {
         
         if (user.isLog) dispatch(getUser(user.userId, user.token))
         
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user.isLog])
 
     console.log(user);
@@ -29,8 +30,8 @@ export const Sidebar = () => {
                 <div className="sideBar-user">
 
                 {user.isLog ? <img src={user.image} alt="logo utilisateur" /> : null }
-                <div style={{wordBreak: 'break-all'}}>{user.username}</div>
-                <div style={{wordBreak: 'break-all'}}>{user.email}</div>
+                <div>{user.username}</div>
+                <div>{user.email}</div>
 
                 </div>
                 

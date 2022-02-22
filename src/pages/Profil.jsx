@@ -5,12 +5,13 @@ export const Profil = () => {
 
   const user = useSelector((state) => state.userReducer);
 
-  const state = useSelector((state) => state)
-
-  console.log(state);
-  console.log(user);
-
   return (
-    <div>Profil</div>
+    <div className='ui text container centered'>
+      <h2>{user.username}</h2>
+      <img src={user.image} alt="logo utilisateur" />
+      <p>Email : {user.email}</p>
+      <p>Membre depuis le : {user.createdAt}</p>
+      <p>Admin : {user.admin ? 'oui' : 'non'}</p>
+    </div>
   )
 }
