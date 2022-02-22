@@ -36,9 +36,14 @@ export const signUp = (user) => {
             .then(res => {
                 
                 dispatch({ type: SIGNUP, payload: res.data })
+
+                //Suppression message d'erreur
+                dispatch({ type: ERROR_SIGNUP, payload: null})
             })
             .catch((err) => {
                 console.log(err.response.data.error)
+
+                //Stockage message erreur api
                 dispatch({ type: ERROR_SIGNUP, payload: err.response.data.error})
             })
     }

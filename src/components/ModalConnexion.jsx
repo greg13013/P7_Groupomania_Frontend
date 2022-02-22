@@ -49,14 +49,16 @@ export const ModalConnexion = () => {
       <Modal.Header>Connexion</Modal.Header>
       <Modal.Content>
         <Modal.Description className="ui text container centered">
-          <form onSubmit={sendForm} className='formLogin'>
+          <form onSubmit={sendForm} className='formLogin ui form fluid'>
 
-          <div className="ui input">
-            <input type="email" name="email" placeholder="Email" onChange={ e => setEmail(e.target.value)} />
+          <div className="field">
+            <label htmlFor="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email" onChange={ e => setEmail(e.target.value)} />
           </div>
 
-          <div className="ui input">
-            <input type="password" name="password" placeholder="Password" onChange={ e => setPassword(e.target.value)} />
+          <div className="field">
+            <label htmlFor="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Password" onChange={ e => setPassword(e.target.value)} />
           </div>
 
           <Button primary>Envoyer</Button>
