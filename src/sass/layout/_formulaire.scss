@@ -3,8 +3,14 @@
     flex-direction: column;
 }
 
+.error {
+    color: red;
+    font-size: 14px;
+}
+
 .ui{
     .input{
         margin: 1rem;
+        flex-direction: column;
     }
 }

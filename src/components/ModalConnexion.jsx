@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Button, Modal } from "semantic-ui-react";
 import { login } from "../actions/user.actions";
@@ -11,6 +12,8 @@ export const ModalConnexion = () => {
 
   const dispatch = useDispatch();
 
+  const userData = useSelector(state => state.userReducer)
+
   const sendForm = async (e) => {
     e.preventDefault();
 
@@ -21,7 +24,11 @@ export const ModalConnexion = () => {
         password
       }
 
-     await dispatch(login(user))
+    dispatch(login(user))
+     
+     console.log(userData);
+
+    //  await dispatch(getUser(userData.userId))
       setOpen(false)
     }
 

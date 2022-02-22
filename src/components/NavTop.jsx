@@ -1,25 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { logout } from "../actions/user.actions";
-import { isEmpty } from "../Utils";
 import { ModalConnexion } from "./ModalConnexion";
 
 export const NavTop = () => {
   const user = useSelector((state) => state.userReducer);
 
-  const [isLog, setIsLog] = useState(false)
-
   const dispatch = useDispatch();
-
-  
-
-  useEffect(() => {
-    
-    setIsLog(!isLog)
-
-  }, [user])
 
   return (
     <header>
@@ -31,7 +20,7 @@ export const NavTop = () => {
           </NavLink>
         </div>
 
-        {!isEmpty(user) ? (
+        {user.isLog ? (
           <div className="item">
             <NavLink activeclass="active" to="/profil">
               <i className="fa-regular fa-user"></i>
@@ -48,17 +37,17 @@ export const NavTop = () => {
         )}
       </div>
 
-      {isLog ? (
-        <div className="menu">
-          <ModalConnexion />
-        </div>
-      ) : (
+      {user.isLog ? (
         <div className="menu">
           <div className="item" onClick={() => dispatch(logout())}>
             <i className="fa-regular fa-user"></i>
             <span className="nav-links">Déconnexion</span>
           </div>
         </div>
+      ) : (
+        <div className="menu">
+        <ModalConnexion />
+      </div>
       )}
     </header>
   );

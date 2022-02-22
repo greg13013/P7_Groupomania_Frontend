@@ -152,7 +152,16 @@ header .menu .item:hover {
           flex-direction: column;
 }
 
+.error {
+  color: red;
+  font-size: 14px;
+}
+
 .ui .input {
   margin: 1rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 /*# sourceMappingURL=main.css.map */
