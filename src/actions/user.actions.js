@@ -8,6 +8,12 @@ export const GET_USER = "GET_USER";
 
 export const LOGOUT = "LOGOUT";
 
+
+export const ERROR_SIGNUP = "ERROR_SIGNUP";
+
+
+
+
 export const login = (user) => {
     return (dispatch) => {
         return axios.post(`${baseUrl}/api/utilisateur/login`, { email: user.email, password: user.password })
@@ -31,7 +37,10 @@ export const signUp = (user) => {
                 
                 dispatch({ type: SIGNUP, payload: res.data })
             })
-            .catch(err => console.log(err.response.data.error))
+            .catch((err) => {
+                console.log(err.response.data.error)
+                dispatch({ type: ERROR_SIGNUP, payload: err.response.data.error})
+            })
     }
 }
 

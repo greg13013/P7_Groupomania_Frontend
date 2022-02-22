@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Button } from "semantic-ui-react";
 import { login, signUp } from "../actions/user.actions";
@@ -18,6 +19,8 @@ export const FormCreerCompte = () => {
 
   const dispatch = useDispatch();
 
+  const erreurUser = useSelector(state => state.errorUserReducer)
+
   const sendForm = async (e) => {
     e.preventDefault();
     console.log("formulaire envoyer");
@@ -34,12 +37,18 @@ export const FormCreerCompte = () => {
       }
 
       await dispatch(signUp(user));
-      await dispatch(login(user));
+      // await dispatch(login(user));
+
+      // console.log(erreurUser);
     }
        
  
 
   };
+
+  useEffect(() => {
+    console.log(erreurUser);
+  },[erreurUser])
 
 
   const gestionErreur = () => {

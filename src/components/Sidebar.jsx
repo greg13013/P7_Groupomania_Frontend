@@ -29,7 +29,7 @@ export const Sidebar = () => {
 
                 <div className="sideBar-user">
 
-                {user.isLog ? <img src={user.image} alt="logo utilisateur" /> : null }
+                {user.isLog ? <img src={user.image} alt="logo utilisateur" className='ui circular image' /> : null }
                 <div>{user.username}</div>
                 <div>{user.email}</div>
 

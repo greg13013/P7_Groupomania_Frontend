@@ -7,8 +7,8 @@ import { login } from "../actions/user.actions";
 export const ModalConnexion = () => {
   const [open, setOpen] = useState(false);
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState(null)
+  const [password, setPassword] = useState(null)
 
   const dispatch = useDispatch();
 

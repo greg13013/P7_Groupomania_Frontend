@@ -1,4 +1,4 @@
-import { GET_USER, LOGIN, LOGOUT, SIGNUP } from "../actions/user.actions";
+import { ERROR_SIGNUP, GET_USER, LOGIN, LOGOUT, SIGNUP } from "../actions/user.actions";
 
 const initialState = {isLog: false};
 
@@ -15,6 +15,17 @@ export default function userReducer(state = initialState, action){
         case GET_USER:
             console.log('get_user action : ', action)
             return {...state, ...action.payload}
+        default:
+            return state
+    }
+}
+
+export function errorUserReducer(state = initialState, action){
+    switch (action.type){
+        case ERROR_SIGNUP:
+            console.log(action.payload);
+            return action.payload
+
         default:
             return state
     }
