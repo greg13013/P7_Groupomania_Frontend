@@ -41,8 +41,17 @@ export const FormCreerCompte = () => {
       }
 
 
-        await dispatch(signUp(user))
-        console.log(erreurUser);
+        dispatch(signUp(user))
+        
+        // await new Promise(r => setTimeout(r, 5000));
+
+        console.log('erreurUSer error',erreurUser.error);
+        // if (erreurUser.error) {
+
+        //   await dispatch(login(user));
+        // }
+          // if (true) return ;
+        // }
         // await dispatch(login(user));
       
       
@@ -50,10 +59,15 @@ export const FormCreerCompte = () => {
 
   };
 
-  // useEffect(() => {
-    // console.log(erreurUser);
+  useEffect(() => {
+    console.log('useEffect',erreurUser);
+    const user = {
+      email: email,
+      password: password
+    }
+    if(!erreurUser.error)  dispatch(login(user));
     // setShowError(!showError)
-  // },[erreurUser])
+  },[erreurUser])
 
 
   const gestionErreur = () => {

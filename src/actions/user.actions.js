@@ -32,14 +32,15 @@ export const logout = () => {
 
 export const signUp = (user) => {
     return (dispatch) => {
-            axios.post(`${baseUrl}/api/utilisateur/signup`, { username: user.username, email: user.email, password: user.password, admin: user.admin })
+            return axios.post(`${baseUrl}/api/utilisateur/signup`, { username: user.username, email: user.email, password: user.password, admin: user.admin })
             .then(res => {
                 
                 dispatch({ type: SIGNUP, payload: res.data })
 
                 //Suppression message d'erreur
                 dispatch({ type: ERROR_CLEAR })
-                dispatch(login(user))
+
+                // dispatch(login(user))
             })
             .catch((err) => {
                 console.log(err.response.data.error)

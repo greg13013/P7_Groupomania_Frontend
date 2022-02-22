@@ -20,7 +20,7 @@ export default function userReducer(state = initialState, action){
     }
 }
 
-const initialStateError = {erreur: false}
+const initialStateError = {error: false}
 
 export function errorUserReducer(state = initialStateError, action){
     switch (action.type){
