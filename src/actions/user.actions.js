@@ -10,7 +10,7 @@ export const LOGOUT = "LOGOUT";
 
 
 export const ERROR_SIGNUP = "ERROR_SIGNUP";
-
+export const ERROR_CLEAR = "ERROR_CLEAR";
 
 
 
@@ -32,13 +32,14 @@ export const logout = () => {
 
 export const signUp = (user) => {
     return (dispatch) => {
-        return axios.post(`${baseUrl}/api/utilisateur/signup`, { username: user.username, email: user.email, password: user.password, admin: user.admin })
+            axios.post(`${baseUrl}/api/utilisateur/signup`, { username: user.username, email: user.email, password: user.password, admin: user.admin })
             .then(res => {
                 
                 dispatch({ type: SIGNUP, payload: res.data })
 
                 //Suppression message d'erreur
-                dispatch({ type: ERROR_SIGNUP, payload: null})
+                dispatch({ type: ERROR_CLEAR })
+                dispatch(login(user))
             })
             .catch((err) => {
                 console.log(err.response.data.error)
@@ -46,6 +47,7 @@ export const signUp = (user) => {
                 //Stockage message erreur api
                 dispatch({ type: ERROR_SIGNUP, payload: err.response.data.error})
             })
+        
     }
 }
 

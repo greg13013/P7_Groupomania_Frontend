@@ -40,20 +40,20 @@ export const FormCreerCompte = () => {
         admin: 0
       }
 
-      await dispatch(signUp(user));
-      await dispatch(login(user));
 
-      // console.log(erreurUser);
+        await dispatch(signUp(user))
+        console.log(erreurUser);
+        // await dispatch(login(user));
+      
+      
     }
-       
- 
 
   };
 
-  useEffect(() => {
-    console.log(erreurUser);
+  // useEffect(() => {
+    // console.log(erreurUser);
     // setShowError(!showError)
-  },[erreurUser])
+  // },[erreurUser])
 
 
   const gestionErreur = () => {
@@ -87,7 +87,7 @@ export const FormCreerCompte = () => {
           <div className="field">
           <label htmlFor="email">Email</label>
             <input type="email" name="email" id="email" placeholder="Email" onChange={ e => setEmail(e.target.value)} />
-            <div className="error" ref={divEmail}></div>
+            <div className="error" ref={divEmail}>{erreurUser.message}</div>
           </div>
 
           <div className="field">
