@@ -17,7 +17,7 @@ export const login = (user) => async (dispatch) => {
       });
       return Promise.resolve(res.data);
     } catch (err) {
-      return Promise.reject(err);
+      return Promise.reject(err.response.data.error);
     }
   };
 
@@ -36,7 +36,7 @@ export const signUp = (user) => async (dispatch) => {
       });
       return Promise.resolve(res.data);
     } catch (err) {
-      return Promise.reject(err);
+      return Promise.reject(err.response.data.error);
     }
   };
 
@@ -49,6 +49,6 @@ export const signUp = (user) => async (dispatch) => {
       });
       return Promise.resolve(res.data);
     } catch (err) {
-      return Promise.reject(err);
+      return Promise.reject(err.response.data.error);
     }
   };

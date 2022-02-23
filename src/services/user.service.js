@@ -6,46 +6,26 @@ const endpoint = '/utilisateur';
 class UserDataService {
 
     getAll() {
-        return new Promise((resolve, reject) => {
-            API.get(`${endpoint}`).then(res => {
-                resolve(res)
-            }).catch(err => {
-                reject(err.response.data.error)
-            })
-        })
+        return API.get(`${endpoint}`)
+
     }
 
     login(user) {
-        return new Promise((resolve, reject) => {
-            API.post(`${endpoint}/login`, { email: user.email, password: user.password }).then(res => {
-                resolve(res)
-            }).catch(err => {
-                reject(err.response.data.error)
-            })
-        })
+        return API.post(`${endpoint}/login`, { email: user.email, password: user.password })
+
     }
 
     signup(user) {
-        return new Promise((resolve, reject) => {
-            API.post(`${endpoint}/signup`, { username: user.username, email: user.email, password: user.password, admin: user.admin }).then(res => {
-                resolve(res)
-            }).catch(err => {
-                reject(err.response.data.error)
-            })
-        })
+        return API.post(`${endpoint}/signup`, { username: user.username, email: user.email, password: user.password, admin: user.admin })
+
     }
 
     get(id, token) {
-        return new Promise((resolve, reject) => {
-            API.get(`${endpoint}/${id}`, {
-                headers: {
-                    'Authorization': `token ${token}`
-                }
-            }).then(res => {
-                resolve(res)
-            }).catch(err => {
-                reject(err.response.data.error)
-            })
+        return API.get(`${endpoint}/${id}`, {
+            headers: {
+                'Authorization': `token ${token}`
+            }
+
         })
     }
 

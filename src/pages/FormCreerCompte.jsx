@@ -7,10 +7,10 @@ export const FormCreerCompte = () => {
   const form = useRef();
 
   //Variable div erreur formulaire
-  const divUsername = useRef();
-  const divEmail = useRef();
-  const divPassword = useRef();
-  const divConfirm = useRef();
+  const erreurUsername = useRef();
+  const erreurEmail = useRef();
+  const erreurPassword = useRef();
+  const erreurConfirm = useRef();
 
   //Variable stockage donnée formulaire
   const [username, setUsername] = useState(null);
@@ -21,7 +21,7 @@ export const FormCreerCompte = () => {
   const dispatch = useDispatch();
 
   // const [showError, setShowError] = useState(false);
-  const [erreurUser, setErreurUser] = useState(null);
+  const [erreurAPI, setErreurAPI] = useState(null);
 
   const sendForm = async (e) => {
     e.preventDefault();
@@ -39,7 +39,7 @@ export const FormCreerCompte = () => {
 
       dispatch(signUp(user))
         .then((res) => {
-          setErreurUser("");
+          setErreurAPI("");
           console.log("signup  form : ", res);
 
           dispatch(login(user))
@@ -49,7 +49,7 @@ export const FormCreerCompte = () => {
             .catch((err) => console.log("ERREUR LOGIN FORM : ", err));
         })
         .catch((err) => {
-          setErreurUser(err);
+          setErreurAPI(err);
           console.log("ERREUR signup  form : ", err);
         });
     }
@@ -57,21 +57,21 @@ export const FormCreerCompte = () => {
 
   const gestionErreur = () => {
     !email
-      ? (divEmail.current.innerHTML = "Le champ ne peut pas être vide")
-      : (divEmail.current.innerHTML = "");
+      ? (erreurEmail.current.innerHTML = "Le champ ne peut pas être vide")
+      : (erreurEmail.current.innerHTML = "");
     !username
-      ? (divUsername.current.innerHTML = "Le champ ne peut pas être vide")
-      : (divUsername.current.innerHTML = "");
+      ? (erreurUsername.current.innerHTML = "Le champ ne peut pas être vide")
+      : (erreurUsername.current.innerHTML = "");
     !password
-      ? (divPassword.current.innerHTML = "Le champ ne peut pas être vide")
-      : (divPassword.current.innerHTML = "");
+      ? (erreurPassword.current.innerHTML = "Le champ ne peut pas être vide")
+      : (erreurPassword.current.innerHTML = "");
     !confirmPassword
-      ? (divConfirm.current.innerHTML = "Le champ ne peut pas être vide")
-      : (divConfirm.current.innerHTML = "");
+      ? (erreurConfirm.current.innerHTML = "Le champ ne peut pas être vide")
+      : (erreurConfirm.current.innerHTML = "");
 
     if (password !== confirmPassword) {
-      divPassword.current.innerHTML = "Les mots de passes ne correspondent pas";
-      divConfirm.current.innerHTML = "Les mots de passes ne correspondent pas";
+      erreurPassword.current.innerHTML = "Les mots de passes ne correspondent pas";
+      erreurConfirm.current.innerHTML = "Les mots de passes ne correspondent pas";
     }
   };
 
@@ -90,7 +90,7 @@ export const FormCreerCompte = () => {
               placeholder="Username"
               onChange={(e) => setUsername(e.target.value)}
             />
-            <div className="error" ref={divUsername}></div>
+            <div className="error" ref={erreurUsername}></div>
           </div>
 
           <div className="field">
@@ -102,8 +102,10 @@ export const FormCreerCompte = () => {
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
             />
-            <div className="error" ref={divEmail}>
-              {erreurUser}
+            <div className="error" ref={erreurEmail}>
+            </div>
+            <div className="error">
+            {erreurAPI}
             </div>
           </div>
 
@@ -116,7 +118,7 @@ export const FormCreerCompte = () => {
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <div className="error" ref={divPassword}></div>
+            <div className="error" ref={erreurPassword}></div>
           </div>
 
           <div className="field">
@@ -128,7 +130,7 @@ export const FormCreerCompte = () => {
               placeholder="Confirmer le password"
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
-            <div className="error" ref={divConfirm}></div>
+            <div className="error" ref={erreurConfirm}></div>
           </div>
 
           <Button primary>Envoyer</Button>
