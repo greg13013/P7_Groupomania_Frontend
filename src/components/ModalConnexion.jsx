@@ -24,7 +24,9 @@ export const ModalConnexion = () => {
         password
       }
 
-    dispatch(login(user))
+    dispatch(login(user)).then((res) => {
+      console.log('LOGIN MODAL : ',res);
+    }).catch(err => console.log('ERREUR LOGIN MODAL : ',err))
      
      console.log(userData);
 

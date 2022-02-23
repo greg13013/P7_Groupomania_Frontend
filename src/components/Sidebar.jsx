@@ -8,12 +8,14 @@ export const Sidebar = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (user.isLog) dispatch(getUser(user.userId, user.token));
+    if (user.isLog) {
+      dispatch(getUser(user.userId, user.token)).then(res => {
+        console.log('getUser SIDEBAR : ', res);
+      }).catch (err => console.log('ERREUR getUser SIDEBAR : ', err))
+    };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.isLog]);
-
-  console.log(user);
 
   return (
     <div>
