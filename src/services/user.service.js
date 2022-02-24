@@ -20,10 +20,17 @@ class UserDataService {
 
     }
 
-
-
     get(id) {
         return API.get(`${endpoint}/${id}`, {
+            headers: {
+                'Authorization': `token ${getToken()}`
+            }
+
+        })
+    }
+
+    update(userData, id){
+        return API.put(`${endpoint}/${id}`, userData, {
             headers: {
                 'Authorization': `token ${getToken()}`
             }
