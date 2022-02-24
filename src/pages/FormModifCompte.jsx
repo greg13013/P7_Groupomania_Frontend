@@ -33,8 +33,8 @@ export const FormModifCompte = ({ id, username, email, image, toggle }) => {
           .then((res) => {
             console.log("getUser UPDATE : ", res);
 
-            //Appel fonction parent
-            toggle()
+            //Appel fonction parent fermeture form update
+            toggle();
           })
           .catch((err) => {
             console.log(err);
@@ -67,7 +67,6 @@ export const FormModifCompte = ({ id, username, email, image, toggle }) => {
           <>
             <label htmlFor="file">Upload image</label>
             <input type="file" name="file" id="file" onChange={(e) => setFile(e.target.files[0])} />
-        
           </>
         )}
       </div>

@@ -29,6 +29,15 @@ class UserDataService {
         })
     }
 
+    delete(id) {
+        return API.delete(`${endpoint}/${id}`, {
+            headers: {
+                'Authorization': `token ${getToken()}`
+            }
+
+        }) 
+    }
+
     update(userData, id){
         return API.put(`${endpoint}/${id}`, userData, {
             headers: {

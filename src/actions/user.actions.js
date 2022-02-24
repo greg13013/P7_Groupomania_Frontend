@@ -5,6 +5,7 @@ export const LOGIN = "LOGIN";
 export const SIGNUP = "SIGNUP";
 export const GET_USER = "GET_USER";
 export const UPDATE_USER = "UPDATE_USER";
+export const DELETE_USER = "DELETE_USER";
 
 export const LOGOUT = "LOGOUT";
 export const LOGIN_COOKIE = "LOGIN_COOKIE";
@@ -81,6 +82,20 @@ export const signUp = (user) => async (dispatch) => {
       const res = await UserDataService.update(user, id);
       dispatch({
         type: UPDATE_USER,
+        payload: res.data,
+      });
+
+      return Promise.resolve(res.data);
+    } catch (err) {
+      return Promise.reject(err.response.data);
+    }
+  };
+
+  export const deleteUser = (id) => async (dispatch) => {
+    try {
+      const res = await UserDataService.delete(id);
+      dispatch({
+        type: DELETE_USER,
         payload: res.data,
       });
 
