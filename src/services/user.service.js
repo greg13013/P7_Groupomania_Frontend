@@ -1,8 +1,7 @@
-import API from "./config";
-import cookie from 'js-cookie'
+import API, { getToken } from "./config";
 
-const endpoint = '/utilisateur';
-// const token = cookie.get('jwt');
+
+const endpoint = '/api/utilisateur';
 
 class UserDataService {
 
@@ -16,21 +15,17 @@ class UserDataService {
 
     }
 
-    signup(user) {
-        return API.post(`${endpoint}/signup`, { username: user.username, email: user.email, password: user.password, admin: user.admin })
+    signup(userData) {
+        return API.post(`${endpoint}/signup`, userData)
 
     }
 
-    getToken(){
-        return cookie.get('jwt');
-    }
+
 
     get(id) {
-        console.log(this.getToken());
-        console.log(id);
         return API.get(`${endpoint}/${id}`, {
             headers: {
-                'Authorization': `token ${this.getToken()}`
+                'Authorization': `token ${getToken()}`
             }
 
         })

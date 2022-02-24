@@ -8,11 +8,13 @@ export const FormCreerCompte = () => {
 
   //Variable div erreur formulaire
   const erreurUsername = useRef();
+  const erreurFile = useRef();
   const erreurEmail = useRef();
   const erreurPassword = useRef();
   const erreurConfirm = useRef();
 
   //Variable stockage donnée formulaire
+  const [file, setFile] = useState(null);
   const [username, setUsername] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
@@ -20,24 +22,33 @@ export const FormCreerCompte = () => {
 
   const dispatch = useDispatch();
 
-  // const [showError, setShowError] = useState(false);
   const [erreurAPI, setErreurAPI] = useState(null);
 
   const sendForm = async (e) => {
     e.preventDefault();
     console.log("formulaire envoyer");
 
+    //Gestion des erreurs
     gestionErreur();
 
-    if (email && password && username && confirmPassword && password === confirmPassword) {
+    if (file && email && password && username && confirmPassword && password === confirmPassword) {
+      console.log(file);
       const user = {
         username: username,
         email: email,
         password: password,
-        admin: 0,
+        admin: 0
       };
 
-      dispatch(signUp(user))
+      //Création formData pour upload donnée & image
+      const formData = new FormData();  
+      formData.append("username", username)
+      formData.append("email", email)
+      formData.append("password", password)
+      formData.append("admin", 0)
+      formData.append("image", file)
+
+      dispatch(signUp(formData))
         .then((res) => {
           setErreurAPI("");
           console.log("signup  form : ", res);
@@ -56,6 +67,9 @@ export const FormCreerCompte = () => {
   };
 
   const gestionErreur = () => {
+    !file
+      ? (erreurFile.current.innerHTML = "Le champ ne peut pas être vide")
+      : (erreurFile.current.innerHTML = "");
     !email
       ? (erreurEmail.current.innerHTML = "Le champ ne peut pas être vide")
       : (erreurEmail.current.innerHTML = "");
@@ -82,6 +96,19 @@ export const FormCreerCompte = () => {
       <div className="ui text container centered">
         <form ref={form} onSubmit={sendForm} className="formCreerCompte ui form fluid segment">
           <div className="field">
+            {file && (
+              <img
+                src={URL.createObjectURL(file)}
+                alt="previewupload"
+                className="ui circular image"
+              />
+            )}
+            <label htmlFor="file">Upload image</label>
+            <input type="file" name="file" id="file" onChange={(e) => setFile(e.target.files[0])} />
+            <div className="error" ref={erreurFile}></div>
+          </div>
+
+          <div className="field">
             <label htmlFor="username">Username</label>
             <input
               type="text"
@@ -102,11 +129,8 @@ export const FormCreerCompte = () => {
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
             />
-            <div className="error" ref={erreurEmail}>
-            </div>
-            <div className="error">
-            {erreurAPI}
-            </div>
+            <div className="error" ref={erreurEmail}></div>
+            <div className="error">{erreurAPI}</div>
           </div>
 
           <div className="field">
