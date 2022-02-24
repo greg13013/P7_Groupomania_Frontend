@@ -2,7 +2,7 @@ import API from "./config";
 import cookie from 'js-cookie'
 
 const endpoint = '/utilisateur';
-const token = cookie.get('jwt');
+// const token = cookie.get('jwt');
 
 class UserDataService {
 
@@ -21,10 +21,16 @@ class UserDataService {
 
     }
 
+    getToken(){
+        return cookie.get('jwt');
+    }
+
     get(id) {
+        console.log(this.getToken());
+        console.log(id);
         return API.get(`${endpoint}/${id}`, {
             headers: {
-                'Authorization': `token ${token}`
+                'Authorization': `token ${this.getToken()}`
             }
 
         })
