@@ -3,6 +3,10 @@
     margin: 2rem !important;
 }
 
+.icons{
+    cursor: pointer;
+}
+
 @include responsive(mobile){
     .global-container{
         grid-template-columns: 1fr;

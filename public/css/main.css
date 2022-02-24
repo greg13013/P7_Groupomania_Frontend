@@ -145,6 +145,10 @@ header .menu .item:hover {
   margin: 2rem !important;
 }
 
+.icons {
+  cursor: pointer;
+}
+
 @media (max-width: 992px) {
   .global-container {
     -ms-grid-columns: 1fr;

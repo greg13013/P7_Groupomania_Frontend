@@ -37,7 +37,7 @@ export const FormCreerCompte = () => {
         username: username,
         email: email,
         password: password,
-        admin: 0
+        admin: false
       };
 
       //Création formData pour upload donnée & image

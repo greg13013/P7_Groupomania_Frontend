@@ -21,12 +21,22 @@ export const NavTop = () => {
         </div>
 
         {user.isLog ? (
+          <>
           <div className="item">
             <NavLink activeclass="active" to="/profil">
               <i className="fa-regular fa-user"></i>
               <span className="nav-links">Profil</span>
             </NavLink>
           </div>
+            {user.admin === true && 
+          <div className="item">
+            <NavLink activeclass="active" to="/admin">
+            <i className="fa-solid fa-crown"></i>
+              <span className="nav-links">Administration</span>
+            </NavLink>
+          </div>
+        }
+          </>
         ) : (
           <div className="item">
             <NavLink activeclass="active" to="/creerCompte">

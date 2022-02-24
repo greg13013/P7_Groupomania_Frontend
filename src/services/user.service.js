@@ -6,7 +6,10 @@ const endpoint = '/api/utilisateur';
 class UserDataService {
 
     getAll() {
-        return API.get(`${endpoint}`)
+        return API.get(`${endpoint}`, {
+            headers: {
+                'Authorization': `token ${getToken()}`
+            }})
 
     }
 
