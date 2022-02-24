@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Button } from "semantic-ui-react";
+import { Button } from "react-materialize";
 import { getUser, updateUser } from "../actions/user.actions";
 
 export const FormModifCompte = ({ id, username, email, image, toggle }) => {
@@ -46,56 +46,81 @@ export const FormModifCompte = ({ id, username, email, image, toggle }) => {
   };
 
   return (
-    <form ref={form} onSubmit={sendForm} className="formCreerCompte ui form fluid">
-      <div className="field">
-        <img
-          src={file ? URL.createObjectURL(file) : image}
-          alt="previewupload"
-          className="ui image large centered"
-          value={image}
-        />
+    <div className="row centrerContainer">
+      <form ref={form} onSubmit={sendForm} className="formCreerCompte col s12 l8">
+        <div className="row centrerContainer flexColumn">
+          <img
+            src={file ? URL.createObjectURL(file) : image}
+            alt="previewupload"
+            value={image}
+            className="responsive-img circle col s10 l3 center-align margin1REM"
+          />
 
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            setModifImageToggle(!modifImageToggle);
-          }}
-        >
-          {modifImageToggle ? `Annuler` : `Modifier l'image`}
-        </Button>
-        {modifImageToggle && (
-          <>
-            <label htmlFor="file">Upload image</label>
-            <input type="file" name="file" id="file" onChange={(e) => setFile(e.target.files[0])} />
-          </>
-        )}
-      </div>
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              setModifImageToggle(!modifImageToggle);
+            }}>
 
-      <div className="field">
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email"
-          value={userEmailModif}
-          onChange={(e) => setUserEmailModif(e.target.value)}
-        />
-      </div>
+            {modifImageToggle ? `Annuler` : `Modifier l'image`}
 
-      <div className="field">
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          placeholder="Username"
-          value={usernameModif}
-          onChange={(e) => setUsernameModif(e.target.value)}
-        />
-      </div>
+          </Button>
 
-      <Button primary>Envoyer</Button>
-    </form>
+          {modifImageToggle && (
+            <>
+              <div className="file-field input-field col s12">
+                <div className="btn">
+                  <span>File</span>
+                  <input
+                    type="file"
+                    name="file"
+                    id="file"
+                    onChange={(e) => setFile(e.target.files[0])}
+                    className="validate"
+                  />
+                </div>
+                <div className="file-path-wrapper">
+                  <input className="file-path validate" type="text" />
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+              type="email"
+              name="emailCreer"
+              id="emailCreer"
+              onChange={(e) => setUserEmailModif(e.target.value)}
+              value={userEmailModif}
+              className="validate"
+            />
+            <label className="active" htmlFor="emailCreer">
+              Email
+            </label>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+              type="text"
+              name="username"
+              id="username"
+              onChange={(e) => setUsernameModif(e.target.value)}
+              value={usernameModif}
+              className="validate"
+            />
+            <label className="active" htmlFor="username">
+              Username
+            </label>
+          </div>
+        </div>
+
+        <Button>Envoyer</Button>
+      </form>
+    </div>
   );
 };

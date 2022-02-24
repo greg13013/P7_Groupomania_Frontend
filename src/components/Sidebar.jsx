@@ -12,8 +12,8 @@ export const Sidebar = () => {
           <img src="img/logo_groupomania.png" alt="logo groupomania" />
         </div>
         {user.isLog ? (
-          <div className="sideBar-user">
-            <img src={user.image} alt="logo utilisateur" className="ui circular image small" />
+          <div className="sideBar-user row">
+            <img src={user.image} alt="logo utilisateur" className="col s8 circle responsive-img" />
             <div>{user.username}</div>
             <div>{user.email}</div>
           </div>

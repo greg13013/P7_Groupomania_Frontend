@@ -22,8 +22,8 @@ export const Admin = () => {
   };
 
   return (
-    <div>
-      <table className="ui selectable celled table">
+    <div className="row">
+      <table className="highlight centered responsive-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -41,7 +41,7 @@ export const Admin = () => {
               <tr key={index}>
                 <td>{user.id}</td>
                 <td>{user.admin ? "oui" : "non"}</td>
-                <td><img src={user.image} className="ui mini rounded image" alt={user.username} /></td>
+                <td><img src={user.image} className="responsive-img circular imgTable" alt={user.username} /></td>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>{user.createdAt}</td>

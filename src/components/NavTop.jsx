@@ -5,10 +5,16 @@ import { NavLink } from "react-router-dom";
 import { logout } from "../actions/user.actions";
 import { ModalConnexion } from "./ModalConnexion";
 
+
 export const NavTop = () => {
   const user = useSelector((state) => state.userReducer);
 
   const dispatch = useDispatch();
+
+  const trigger = <div className="item">
+  <i className="fa-regular fa-user"></i>
+  <span className="nav-links">Connexion</span>
+</div>;
 
   return (
     <header>
@@ -56,7 +62,7 @@ export const NavTop = () => {
         </div>
       ) : (
         <div className="menu">
-        <ModalConnexion />
+        <ModalConnexion trigger={trigger} />
       </div>
       )}
     </header>

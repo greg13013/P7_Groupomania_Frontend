@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { Button, Modal } from "semantic-ui-react";
 import { getUser, login } from "../actions/user.actions";
 
-export const ModalConnexion = () => {
+import { Modal, Button } from "react-materialize";
+
+export const ModalConnexion = ({ trigger }) => {
   const [open, setOpen] = useState(false);
 
   const [email, setEmail] = useState(null);
@@ -50,60 +51,37 @@ export const ModalConnexion = () => {
   }, [errorForm]);
 
   return (
-    <Modal
-      onClose={() => setOpen(false)}
-      onOpen={() => setOpen(true)}
-      open={open}
-      trigger={
-        <div className="item">
-          <i className="fa-regular fa-user"></i>
-          <span className="nav-links">Connexion</span>
+    <Modal header="Connexion" trigger={trigger}>
+      <form onSubmit={sendForm} className="formLogin col s12">
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              className="validate"
+            />
+            <label htmlFor="email">Email</label>
+          </div>
         </div>
-      }
-    >
-      <Modal.Header>Connexion</Modal.Header>
-      <Modal.Content>
-        <Modal.Description className="ui text container centered">
-          <form onSubmit={sendForm} className="formLogin ui form fluid">
-            <div className="field">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
 
-            <div className="field">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              className="validate"
+            />
+            <label htmlFor="email">Password</label>
+          </div>
+        </div>
 
-            <Button primary>Envoyer</Button>
-            <div className="error">{errorForm}</div>
-          </form>
-        </Modal.Description>
-      </Modal.Content>
-      <Modal.Actions>
-        <Button color="black" onClick={() => setOpen(false)}>
-          Fermer
-        </Button>
-        {/* <Button
-          content="Yep, that's me"
-          labelPosition="right"
-          icon="checkmark"
-          onClick={() => setOpen(false)}
-          positive
-        /> */}
-      </Modal.Actions>
+        <Button>Envoyer</Button>
+        <div className="error">{errorForm}</div>
+      </form>
     </Modal>
   );
 };

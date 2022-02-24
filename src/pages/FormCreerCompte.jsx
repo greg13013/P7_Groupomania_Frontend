@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Button } from "semantic-ui-react";
+import { Button } from "react-materialize";
 import { login, signUp } from "../actions/user.actions";
 
 export const FormCreerCompte = () => {
@@ -37,16 +37,16 @@ export const FormCreerCompte = () => {
         username: username,
         email: email,
         password: password,
-        admin: false
+        admin: false,
       };
 
       //Création formData pour upload donnée & image
-      const formData = new FormData();  
-      formData.append("username", username)
-      formData.append("email", email)
-      formData.append("password", password)
-      formData.append("admin", 0)
-      formData.append("image", file)
+      const formData = new FormData();
+      formData.append("username", username);
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("admin", 0);
+      formData.append("image", file);
 
       dispatch(signUp(formData))
         .then((res) => {
@@ -91,73 +91,97 @@ export const FormCreerCompte = () => {
 
   return (
     <>
-      <h2 className="ui center aligned header">Formulaire d'enregistrement</h2>
-      {/* <Message negative hidden={showError} floating content={erreurUser}></Message> */}
-      <div className="ui text container centered">
-        <form ref={form} onSubmit={sendForm} className="formCreerCompte ui form fluid segment">
-          <div className="field">
-            {file && (
-              <img
-                src={URL.createObjectURL(file)}
-                alt="previewupload"
-                className="ui circular image"
+      <h3 className="center">Formulaire d'enregistrement</h3>
+      <div className="row centrerContainer">
+        <form ref={form} onSubmit={sendForm} className="formCreerCompte col s8 l6">
+ 
+
+          <div className="row">
+              {file && (
+                <img
+                  src={URL.createObjectURL(file)}
+                  alt="previewupload"
+                  className="responsive-img circle col s10 l3 center-align"
+                />
+              )}
+            <div className="file-field input-field col s12">
+              <div className="btn">
+                <span>File</span>
+                <input
+                  type="file"
+                  name="file"
+                  id="file"
+                  onChange={(e) => setFile(e.target.files[0])}
+                  className="validate"
+                />
+              </div>
+              <div className="file-path-wrapper">
+                <input className="file-path validate" type="text" />
+              </div>
+              <div className="error" ref={erreurFile}></div>
+
+            </div>
+          </div>
+
+
+          <div className="row">
+            <div className="input-field col s12">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                onChange={(e) => setUsername(e.target.value)}
+                className="validate"
               />
-            )}
-            <label htmlFor="file">Upload image</label>
-            <input type="file" name="file" id="file" onChange={(e) => setFile(e.target.files[0])} />
-            <div className="error" ref={erreurFile}></div>
+              <label htmlFor="username">Username</label>
+              <div className="error" ref={erreurUsername}></div>
+            </div>
           </div>
 
-          <div className="field">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Username"
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <div className="error" ref={erreurUsername}></div>
+          <div className="row">
+            <div className="input-field col s12">
+              <input
+                type="email"
+                name="emailCreer"
+                id="emailCreer"
+                onChange={(e) => setEmail(e.target.value)}
+                className="validate"
+              />
+              <label htmlFor="emailCreer">Email</label>
+              <div className="error" ref={erreurEmail}></div>
+              <div className="error">{erreurAPI}</div>
+            </div>
           </div>
 
-          <div className="field">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <div className="error" ref={erreurEmail}></div>
-            <div className="error">{erreurAPI}</div>
+          <div className="row">
+            <div className="input-field col s12">
+              <input
+                type="password"
+                name="passwordCreer"
+                id="passwordCreer"
+                onChange={(e) => setPassword(e.target.value)}
+                className="validate"
+              />
+              <label htmlFor="passwordCreer">Password</label>
+              <div className="error" ref={erreurPassword}></div>
+            </div>
           </div>
 
-          <div className="field">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <div className="error" ref={erreurPassword}></div>
+          <div className="row">
+            <div className="input-field col s12">
+              <input
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className="validate"
+              />
+              <label htmlFor="confirmPassword">Confirmer le password</label>
+              <div className="error" ref={erreurConfirm}></div>
+            </div>
           </div>
 
-          <div className="field">
-            <label htmlFor="confirmPassword">Confirmer le password</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              id="confirmPassword"
-              placeholder="Confirmer le password"
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-            <div className="error" ref={erreurConfirm}></div>
-          </div>
-
-          <Button primary>Envoyer</Button>
+          <Button>Envoyer</Button>
         </form>
       </div>
     </>

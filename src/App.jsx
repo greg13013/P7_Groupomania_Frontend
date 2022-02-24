@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { Container } from './components/Container'
 import { Sidebar } from './components/Sidebar'
 
+import M from 'materialize-css'
+
 //Redux
 import { useDispatch } from 'react-redux'
 import { getUser, loginCookie } from './actions/user.actions'
@@ -18,6 +20,10 @@ export const App = () => {
 
   //Si token dans cookie, connexion automatique
   useEffect(() => {
+
+    //Initialisation materialize JS
+    // M.AutoInit();
+
     if (tokenCookie){
       dispatch(loginCookie(userId, tokenCookie)).then(() => {
         dispatch(getUser(userId)).then(res => {

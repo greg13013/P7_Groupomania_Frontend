@@ -7,6 +7,35 @@
     cursor: pointer;
 }
 
+.col{
+    margin-left: 0 !important;
+}
+
+.margin1REM{
+    margin: 1rem;
+}
+
+.centrerContainer{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+}
+
+.flexColumn {
+    flex-direction: column;
+}
+
+.profilIcon{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.cardProfil{
+    border: 2px solid #e3e8f0;
+    position: relative;
+}
+
 @include responsive(mobile){
     .global-container{
         grid-template-columns: 1fr;

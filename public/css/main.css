@@ -149,6 +149,44 @@ header .menu .item:hover {
   cursor: pointer;
 }
 
+.col {
+  margin-left: 0 !important;
+}
+
+.margin1REM {
+  margin: 1rem;
+}
+
+.centrerContainer {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flexColumn {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.profilIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.cardProfil {
+  border: 2px solid #e3e8f0;
+  position: relative;
+}
+
 @media (max-width: 992px) {
   .global-container {
     -ms-grid-columns: 1fr;
@@ -189,5 +227,9 @@ header .menu .item:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.imgTable {
+  width: 200px;
 }
 /*# sourceMappingURL=main.css.map */
