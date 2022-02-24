@@ -1,21 +1,9 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { useSelector } from "react-redux";
-import { getUser } from "../actions/user.actions";
 
 export const Sidebar = () => {
   const user = useSelector((state) => state.userReducer);
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (user.isLog) {
-      dispatch(getUser(user.userId, user.token)).then(res => {
-        console.log('getUser SIDEBAR : ', res);
-      }).catch (err => console.log('ERREUR getUser SIDEBAR : ', err))
-    };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user.isLog]);
 
   return (
     <div>
