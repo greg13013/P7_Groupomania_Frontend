@@ -87,3 +87,12 @@ header{
 .nav-links{
     margin-left: 14px;
 }
+
+.navMobile{
+    @include responsive(mobile) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}

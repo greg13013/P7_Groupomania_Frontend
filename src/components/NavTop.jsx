@@ -20,7 +20,7 @@ export const NavTop = () => {
     <header>
       <div className="menu">
         <div className="item">
-          <NavLink activeclass="active" to="/">
+          <NavLink activeclass="active" className='navMobile' to="/">
             <i className="fas fa-home"></i>
             <span className="nav-links">Accueil</span>
           </NavLink>
@@ -29,14 +29,14 @@ export const NavTop = () => {
         {user.isLog ? (
           <>
           <div className="item">
-            <NavLink activeclass="active" to="/profil">
+            <NavLink activeclass="active" className='navMobile' to="/profil">
               <i className="fa-regular fa-user"></i>
               <span className="nav-links">Profil</span>
             </NavLink>
           </div>
             {user.admin === true && 
           <div className="item">
-            <NavLink activeclass="active" to="/admin">
+            <NavLink activeclass="active" className='navMobile' to="/admin">
             <i className="fa-solid fa-crown"></i>
               <span className="nav-links">Administration</span>
             </NavLink>
@@ -45,7 +45,7 @@ export const NavTop = () => {
           </>
         ) : (
           <div className="item">
-            <NavLink activeclass="active" to="/creerCompte">
+            <NavLink activeclass="active" className='navMobile' to="/creerCompte">
               <i className="fa-regular fa-user"></i>
               <span className="nav-links">Créer un compte</span>
             </NavLink>
@@ -55,7 +55,7 @@ export const NavTop = () => {
 
       {user.isLog ? (
         <div className="menu">
-          <div className="item" onClick={() => dispatch(logout())}>
+          <div className="item navMobile" onClick={() => dispatch(logout())}>
             <i className="fa-solid fa-right-to-bracket"></i>
             <span className="nav-links">Déconnexion</span>
           </div>

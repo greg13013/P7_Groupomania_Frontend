@@ -30,6 +30,7 @@ export const Profil = () => {
             src="./img/icons/edit.svg"
             alt="edit"
             className="circle responsive-img"
+            title="Edit"
           />
           {/* </div>
       <div className="col s2"> */}
@@ -39,6 +40,7 @@ export const Profil = () => {
             src="./img/icons/delete.svg"
             alt="delete"
             className="circle responsive-img"
+            title="Delete"
           />
         </div>
         {!editToggle ? (

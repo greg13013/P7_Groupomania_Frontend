@@ -53,7 +53,7 @@ export const FormModifCompte = ({ id, username, email, image, toggle }) => {
             src={file ? URL.createObjectURL(file) : image}
             alt="previewupload"
             value={image}
-            className="responsive-img circle col s10 l3 center-align margin1REM"
+            className="responsive-img col s10 l7 center-align margin1REM"
           />
 
           <Button
