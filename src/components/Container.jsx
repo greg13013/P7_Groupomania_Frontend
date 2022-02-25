@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import { Accueil } from "../pages/Accueil";
 import { Admin } from "../pages/Admin";
 import { FormCreerCompte } from "../pages/FormCreerCompte";
+import { FormCreerPost } from "../pages/FormCreerPost";
 import { Profil } from "../pages/Profil";
 import { NavTop } from "./NavTop";
 
@@ -17,7 +18,10 @@ export const Container = () => {
         <Routes>
           <Route path="/*" element={<Accueil />} />
           {user.isLog ? (
+            <>
             <Route path="/profil" element={<Profil />} />
+            <Route path="/creerPost" element={<FormCreerPost />} />
+            </>
           ) : (
             <Route path="/creerCompte" element={<FormCreerCompte />} />
           )}

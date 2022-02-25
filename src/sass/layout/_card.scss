@@ -1,0 +1,16 @@
+.cardPerso{
+    border: 2px solid #e3e8f0;
+    position: relative;
+}
+
+.card-contenu{
+    white-space: break-spaces;
+}
+
+.card-footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 12px;
+    color: grey;
+}

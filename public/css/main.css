@@ -228,11 +228,6 @@ nav {
   cursor: pointer;
 }
 
-.cardProfil {
-  border: 2px solid #e3e8f0;
-  position: relative;
-}
-
 @media (max-width: 992px) {
   .global-container {
     -ms-grid-columns: 1fr;
@@ -257,6 +252,10 @@ nav {
           flex-direction: column;
 }
 
+.formCreerPost {
+  padding: 2rem !important;
+}
+
 .error {
   color: red;
   font-size: 14px;
@@ -277,5 +276,22 @@ nav {
 
 .imgTable {
   width: 100px;
+}
+
+.cardPerso {
+  border: 2px solid #e3e8f0;
+  position: relative;
+}
+
+.card-contenu {
+  white-space: break-spaces;
+}
+
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 12px;
+  color: grey;
 }
 /*# sourceMappingURL=main.css.map */

@@ -5,7 +5,8 @@ import { deleteUser, getAllUser } from "../actions/admin.actions";
 
 export const Admin = () => {
   const dispatch = useDispatch();
-  const users = Array.from(useSelector((state) => state.adminReducer));
+  // const users = Array.from(useSelector((state) => state.adminReducer));
+  const users = useSelector((state) => state.adminReducer);
 
   useEffect(() => {
     dispatch(getAllUser())

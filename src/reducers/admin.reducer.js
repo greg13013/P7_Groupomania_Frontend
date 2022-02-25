@@ -1,7 +1,7 @@
 import { ADMIN_DELETE_USER, ADMIN_GET_ALL_USER } from "../actions/admin.actions";
 
 
-const initialState = {};
+const initialState = [{}];
 
 export default function userReducer(state = initialState, action){
     switch (action.type){

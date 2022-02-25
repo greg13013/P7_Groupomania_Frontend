@@ -32,10 +32,6 @@
     cursor: pointer;
 }
 
-.cardProfil{
-    border: 2px solid #e3e8f0;
-    position: relative;
-}
 
 @include responsive(mobile){
     .global-container{
