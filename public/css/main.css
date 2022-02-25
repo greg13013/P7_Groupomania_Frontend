@@ -49,6 +49,11 @@ header .menu .item:hover {
           box-shadow: 0px 4px 0px 0px #7baeff;
 }
 
+header .menu .textNav {
+  color: white;
+  padding: 2rem;
+}
+
 nav {
   background-color: #0e203f;
 }

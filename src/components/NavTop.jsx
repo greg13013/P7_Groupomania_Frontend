@@ -5,28 +5,29 @@ import { NavLink } from "react-router-dom";
 import { logout } from "../actions/user.actions";
 import { ModalConnexion } from "./ModalConnexion";
 
-
 export const NavTop = () => {
   const user = useSelector((state) => state.userReducer);
 
   const dispatch = useDispatch();
 
-  const trigger = <div className="item">
-  <i className="fa-regular fa-user"></i>
-  <span className="nav-links">Connexion</span>
-</div>;
+  const trigger = (
+    <div className="item">
+      <i className="fa-regular fa-user"></i>
+      <span className="nav-links">Connexion</span>
+    </div>
+  );
 
   return (
     <header>
       <div className="menu">
         <div className="item">
-          <NavLink activeclass="active" className='navMobile' to="/">
+          <NavLink activeclass="active" className="navMobile" to="/">
             <i className="fas fa-home"></i>
             <span className="nav-links">Accueil</span>
           </NavLink>
         </div>
 
-        {user.isLog ? (
+        {/* {user.isLog ? (
           <>
           <div className="item">
             <NavLink activeclass="active" className='navMobile' to="/profil">
@@ -50,11 +51,13 @@ export const NavTop = () => {
               <span className="nav-links">Créer un compte</span>
             </NavLink>
           </div>
-        )}
+        )} */}
       </div>
 
       {user.isLog ? (
         <div className="menu">
+          <div className="textNav">Bienvenue {user.username}</div>
+
           <div className="item navMobile" onClick={() => dispatch(logout())}>
             <i className="fa-solid fa-right-to-bracket"></i>
             <span className="nav-links">Déconnexion</span>
@@ -62,8 +65,8 @@ export const NavTop = () => {
         </div>
       ) : (
         <div className="menu">
-        <ModalConnexion trigger={trigger} />
-      </div>
+          <ModalConnexion trigger={trigger} />
+        </div>
       )}
     </header>
   );
