@@ -12,7 +12,6 @@ export const Posts = () => {
     dispatch(getAllPost())
       .then((res) => {
         console.log("Get All post :", res);
-        console.log(posts);
       })
       .catch((err) => {
         console.log("ERROR get all post : ", err);
@@ -23,7 +22,7 @@ export const Posts = () => {
     <div>
       {posts.map((post, index) => {
         return (
-          <div className="row" key={index}>
+          <div className="row centrerContainer" key={index}>
             <div className="col s12 l6">
               <CardPost post={post} />
             </div>

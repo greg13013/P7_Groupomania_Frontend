@@ -8,8 +8,7 @@ export default function userReducer(state = initialState, action){
         case CREATE_POST:
             return [...state, action.payload]
         case GET_ALL_POST:
-            console.log('ACTION GET ALL POST : ', action.payload);
-            return action.payload
+            return action.payload.reverse()
         case DELETE_POST:
             return state.filter((post) => post.id !== action.payload.postId);
         default:

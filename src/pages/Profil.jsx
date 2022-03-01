@@ -23,7 +23,7 @@ export const Profil = () => {
 
   return (
     <div className="row centrerContainer">
-      <div className="col s12 l8 centrerContainer flexColumn cardProfil">
+      <div className="col s12 l8 centrerContainer flexColumn cardPerso">
         <div className="profilIcon">
           <img
             onClick={() => toggleUpdate()}

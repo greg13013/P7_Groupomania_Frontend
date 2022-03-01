@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { Button } from 'react-materialize';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { createPost } from '../actions/post.actions';
 
 export const FormCreerPost = () => {
@@ -16,6 +17,7 @@ export const FormCreerPost = () => {
   const [contenu, setContenu] = useState(null);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const sendForm = async (e) => {
     e.preventDefault();
@@ -33,6 +35,7 @@ export const FormCreerPost = () => {
 
         dispatch(createPost(formData)).then(res => {
             console.log(res);
+            navigate('/accueil');
         }).catch(err => {
             console.log(err);
         })

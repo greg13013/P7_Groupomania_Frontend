@@ -281,10 +281,30 @@ nav {
 .cardPerso {
   border: 2px solid #e3e8f0;
   position: relative;
+  -webkit-box-shadow: 0px 0px 10px 0px;
+          box-shadow: 0px 0px 10px 0px;
+  border-radius: 8px;
+}
+
+.cardPost {
+  -webkit-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+}
+
+.cardPost:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-transition: all 400ms ease-in-out;
+  transition: all 400ms ease-in-out;
+}
+
+.card-header {
+  border-bottom: 2px solid #e3e8f0;
 }
 
 .card-contenu {
   white-space: break-spaces;
+  margin: 16px;
 }
 
 .card-footer {

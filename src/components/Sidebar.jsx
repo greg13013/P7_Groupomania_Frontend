@@ -60,6 +60,10 @@ export const Sidebar = () => {
             <div>{user.email}</div>
           </div>
         ) : null}
+        <NavLink activeclass="active" to="/profil" className="bloc-link">
+          <i className="fa-regular fas fa-user"></i>
+          <span className="nav-links">Profil</span>
+        </NavLink>
         <NavLink activeclass="active" to="/creerPost" className="bloc-link">
           <i className="fas fa-book-open"></i>
           <span className="nav-links">Créer un post</span>

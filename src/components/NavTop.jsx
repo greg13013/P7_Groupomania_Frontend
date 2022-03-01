@@ -57,7 +57,6 @@ export const NavTop = () => {
       {user.isLog ? (
         <div className="menu">
           <div className="textNav">Bienvenue {user.username}</div>
-
           <div className="item navMobile" onClick={() => dispatch(logout())}>
             <i className="fa-solid fa-right-to-bracket"></i>
             <span className="nav-links">Déconnexion</span>
