@@ -298,6 +298,12 @@ nav {
   transition: all 400ms ease-in-out;
 }
 
+.card-titre {
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .card-header {
   border-bottom: 2px solid #e3e8f0;
 }

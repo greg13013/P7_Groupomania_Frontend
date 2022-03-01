@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button } from "react-materialize";
-import { getUser, updateUser } from "../actions/user.actions";
+import { getUser, updateUser } from "../../actions/user.actions";
 
 export const FormModifCompte = ({ id, username, email, image, toggle }) => {
   const form = useRef();

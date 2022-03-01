@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { deleteUser } from "../actions/user.actions";
-import { FormModifCompte } from "./FormModifCompte";
+import { FormModifCompte } from "../components/Form/FormModifCompte";
 
 export const Profil = () => {
   const user = useSelector((state) => state.userReducer);

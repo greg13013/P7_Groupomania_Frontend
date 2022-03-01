@@ -16,6 +16,7 @@ export const Posts = () => {
       .catch((err) => {
         console.log("ERROR get all post : ", err);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -25,7 +26,7 @@ export const Posts = () => {
         return (
           <div className="row centrerContainer" key={index}>
             <div className="col s12 l6">
-              <CardPost post={post} />
+              <CardPost post={post} user={post.user} />
             </div>
           </div>
         );
