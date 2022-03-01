@@ -27,23 +27,8 @@ export const NavTop = () => {
           </NavLink>
         </div>
 
-        {/* {user.isLog ? (
-          <>
-          <div className="item">
-            <NavLink activeclass="active" className='navMobile' to="/profil">
-              <i className="fa-regular fa-user"></i>
-              <span className="nav-links">Profil</span>
-            </NavLink>
-          </div>
-            {user.admin === true && 
-          <div className="item">
-            <NavLink activeclass="active" className='navMobile' to="/admin">
-            <i className="fa-solid fa-crown"></i>
-              <span className="nav-links">Administration</span>
-            </NavLink>
-          </div>
-        }
-          </>
+        {user.isLog ? (
+          null
         ) : (
           <div className="item">
             <NavLink activeclass="active" className='navMobile' to="/creerCompte">
@@ -51,7 +36,7 @@ export const NavTop = () => {
               <span className="nav-links">Créer un compte</span>
             </NavLink>
           </div>
-        )} */}
+        )}
       </div>
 
       {user.isLog ? (

@@ -302,6 +302,10 @@ nav {
   border-bottom: 2px solid #e3e8f0;
 }
 
+.card-header img {
+  margin: 16px;
+}
+
 .card-contenu {
   white-space: break-spaces;
   margin: 16px;

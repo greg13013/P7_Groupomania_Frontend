@@ -20,6 +20,7 @@ export const Posts = () => {
 
   return (
     <div>
+      <h3>Fil d'actualité</h3>
       {posts.map((post, index) => {
         return (
           <div className="row centrerContainer" key={index}>

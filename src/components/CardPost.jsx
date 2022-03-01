@@ -1,6 +1,7 @@
 import React from "react";
 
 export const CardPost = ({ post }) => {
+
   return (
     <div className="cardPerso cardPost centrerContainer flexColumn">
       <div className="card-header col s12 centrerContainer">

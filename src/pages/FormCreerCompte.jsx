@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button } from "react-materialize";
 import { login, signUp } from "../actions/user.actions";
+import { InputFile } from "../components/Form/InputFile";
 
 export const FormCreerCompte = () => {
   const form = useRef();
@@ -96,32 +97,7 @@ export const FormCreerCompte = () => {
         <form ref={form} onSubmit={sendForm} className="formCreerCompte col s8 l6">
  
 
-          <div className="row">
-              {file && (
-                <img
-                  src={URL.createObjectURL(file)}
-                  alt="previewupload"
-                  className="responsive-img circle col s10 l3 center-align"
-                />
-              )}
-            <div className="file-field input-field col s12">
-              <div className="btn">
-                <span>File</span>
-                <input
-                  type="file"
-                  name="file"
-                  id="file"
-                  onChange={(e) => setFile(e.target.files[0])}
-                  className="validate"
-                />
-              </div>
-              <div className="file-path-wrapper">
-                <input className="file-path validate" type="text" />
-              </div>
-              <div className="error" ref={erreurFile}></div>
-
-            </div>
-          </div>
+        <InputFile file={file} setFile={setFile} erreurFile={erreurFile} />
 
 
           <div className="row">
