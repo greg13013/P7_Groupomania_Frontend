@@ -7,7 +7,6 @@ export const CardPost = ({ post, user }) => {
   const dispatch = useDispatch();
   const userConnecter = useSelector((state) => state.userReducer);
 
-  console.log(user);
   if (user) {
     var username = user.username;
     var userId = user.id;

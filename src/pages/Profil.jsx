@@ -22,7 +22,8 @@ export const Profil = () => {
   };
 
   return (
-    <div className="row centrerContainer">
+    <div className="row centrerContainer flexColumn">
+      <h3>Profil</h3>
       <div className="col s12 l8 centrerContainer flexColumn cardPerso">
         <div className="profilIcon">
           <img
@@ -45,7 +46,7 @@ export const Profil = () => {
         </div>
         {!editToggle ? (
           <>
-            <h2>{user.username}</h2>
+            <h4>{user.username}</h4>
             <img src={user.image} alt="logo utilisateur" className="responsive-img col s6 margin1REM" />
             <div className="centrerContainer flexColumn col s12">
               <p>Username : {user.username}</p>
