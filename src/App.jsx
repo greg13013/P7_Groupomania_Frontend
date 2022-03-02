@@ -22,8 +22,8 @@ export const App = () => {
 
   //Si token dans cookie, connexion automatique
   useEffect(() => {
-    //Initialisation materialize JS
-    // M.AutoInit();
+    //Initialisation sidenav materialize JS
+    M.AutoInit();
 
     if (tokenCookie) {
       dispatch(loginCookie(userId, tokenCookie)).then(() => {
