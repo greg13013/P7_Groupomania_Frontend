@@ -26,28 +26,17 @@ export const Profil = () => {
       <h3>Profil</h3>
       <div className="col s12 l8 centrerContainer flexColumn cardPerso">
         <div className="profilIcon">
-          <img
-            onClick={() => toggleUpdate()}
-            src="./img/icons/edit.svg"
-            alt="edit"
-            className="circle responsive-img"
-            title="Edit"
-          />
-          {/* </div>
-      <div className="col s2"> */}
-
-          <img
-            onClick={() => toggleDelete()}
-            src="./img/icons/delete.svg"
-            alt="delete"
-            className="circle responsive-img"
-            title="Delete"
-          />
+          <i className="fa-solid fa-pen margin1REM" onClick={() => toggleUpdate()}></i>
+          <i className="fa-solid fa-trash-can margin1REM" onClick={() => toggleDelete()}></i>
         </div>
         {!editToggle ? (
           <>
             <h4>{user.username}</h4>
-            <img src={user.image} alt="logo utilisateur" className="responsive-img col s6 margin1REM" />
+            <img
+              src={user.image}
+              alt="logo utilisateur"
+              className="responsive-img col s6 margin1REM"
+            />
             <div className="centrerContainer flexColumn col s12">
               <p>Username : {user.username}</p>
               <p>Email : {user.email}</p>

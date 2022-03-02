@@ -29,13 +29,7 @@ export const CardPost = ({ post, user }) => {
     <div className="cardPerso cardPost centrerContainer flexColumn">
       {userConnecter.id === userId && (
         <div className="profilIcon">
-          <img
-            onClick={() => toggleDelete()}
-            src="./img/icons/delete.svg"
-            alt="delete"
-            className="circle responsive-img"
-            title="Delete"
-          />
+          <i className="fa-solid fa-trash-can" onClick={() => toggleDelete()}></i>
         </div>
       )}
       <div className="card-img-user">

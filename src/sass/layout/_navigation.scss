@@ -24,6 +24,10 @@ header{
     }
 }
 
+.headerDarkMode{
+    background-color: $couleurNavDarkMode;
+}
+
 nav{
     background-color: $couleurNav;
     i {
@@ -42,6 +46,14 @@ nav{
     border-right: 2px solid $couleurGris;
     background-color: #fdfdff;
     line-height: normal;
+}
+
+.darkSideBar {
+    background-color: $couleurSideBarDarkMode;
+}
+
+.darkSideBar-user{
+    color: $couleurTextDarkMode !important;
 }
 
 .sideBar-user{
@@ -99,6 +111,16 @@ nav{
             color: #35b970;
             font-weight: 500;
         }
+    }
+}
+
+.darkBloc-link {
+    color: $couleurTextDarkMode !important;
+    &:hover{
+        background: #1c1c1c !important;
+    }
+    &.active{
+        background: #1c1c1c !important;
     }
 }
 

@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { logout } from "../actions/user.actions";
+import { DarkModeContext } from "../context/DarkModeContext";
 import { ModalConnexion } from "./ModalConnexion";
 
 export const NavTop = () => {
   const user = useSelector((state) => state.userReducer);
 
   const dispatch = useDispatch();
+
+  const {darkMode} = useContext(DarkModeContext)
 
   const trigger = (
     <div className="item">
@@ -18,7 +21,7 @@ export const NavTop = () => {
   );
 
   return (
-    <header>
+    <header className={darkMode ? "headerDarkMode" : null}>
       <div className="menu">
         <div className="item">
           <NavLink activeclass="active" className="navMobile" to="/">
