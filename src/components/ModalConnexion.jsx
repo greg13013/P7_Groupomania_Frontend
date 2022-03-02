@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getUser, login } from "../actions/user.actions";
 
 import { Modal, Button } from "react-materialize";
+import { useNavigate } from "react-router-dom";
 
 export const ModalConnexion = ({ trigger }) => {
-  const [open, setOpen] = useState(false);
 
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
@@ -14,6 +14,7 @@ export const ModalConnexion = ({ trigger }) => {
   const [errorForm, setErrorForm] = useState(null);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const userData = useSelector((state) => state.userReducer);
 
@@ -32,6 +33,7 @@ export const ModalConnexion = ({ trigger }) => {
           dispatch(getUser(res.userId))
             .then((res) => {
               console.log("getUser LOGIN MODAL : ", res);
+              navigate('/accueil')
             })
             .catch((err) => console.log("ERREUR getUser LOGIN MODAL : ", err));
         })
@@ -45,10 +47,6 @@ export const ModalConnexion = ({ trigger }) => {
       //  await dispatch(getUser(userData.userId))
     }
   };
-
-  useEffect(() => {
-    if (!errorForm) setOpen(false);
-  }, [errorForm]);
 
   return (
     <Modal header="Connexion" trigger={trigger}>

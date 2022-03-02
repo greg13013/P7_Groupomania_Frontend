@@ -94,7 +94,7 @@ export const FormCreerCompte = () => {
     <>
       <h3 className="center">Formulaire d'enregistrement</h3>
       <div className="row centrerContainer">
-        <form ref={form} onSubmit={sendForm} className="formCreerCompte col s8 l6">
+        <form ref={form} onSubmit={sendForm} className="cardPerso formCreerCompte col s8 l6">
  
 
         <InputFile file={file} setFile={setFile} erreurFile={erreurFile} />

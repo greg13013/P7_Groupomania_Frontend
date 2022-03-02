@@ -7,10 +7,39 @@
 }
 
 .cardPost{
-    transition: all 500ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    margin: 16px;
     &:hover{
-        transform: translateY(-10px);
-        transition: all 400ms ease-in-out;
+        box-shadow: 0px 0px 20px 10px;
+        transition: all 300ms ease-in-out;
+    }
+}
+
+.card-img-user{
+    position: absolute;
+    left: -35px;
+    top: -25px;
+    width: 70px;
+    @include responsive(mobile){
+        left: -25px;
+        top: -15px;
+        width: 50px;
+    }
+}
+
+.card-likeDislike{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    .marginLike{
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .disabledIcon{
+        opacity: 0.6;
+        cursor: not-allowed;
     }
 }
 

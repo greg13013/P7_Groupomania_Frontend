@@ -6,7 +6,7 @@ const endpoint = '/api/post';
 class PostDataService {
 
     getAll() {
-        return API.get(`${endpoint}`, {
+        return API.get(`${endpoint}/likesDislikes`, {
             headers: {
                 'Authorization': `token ${getToken()}`
             }})
@@ -41,6 +41,24 @@ class PostDataService {
 
     update(postData, id){
         return API.put(`${endpoint}/${id}`, postData, {
+            headers: {
+                'Authorization': `token ${getToken()}`
+            }
+
+        })
+    }
+
+    like(id){
+        return API.post(`${endpoint}/${id}/like`, {}, {
+            headers: {
+                'Authorization': `token ${getToken()}`
+            }
+
+        })
+    }
+
+    dislike(id){
+        return API.post(`${endpoint}/${id}/dislike`, {}, {
             headers: {
                 'Authorization': `token ${getToken()}`
             }

@@ -1,17 +1,17 @@
 /* Works on Chrome, Edge, and Safari */
-// *::-webkit-scrollbar {
-//     width: 12px;
-//   }
+*::-webkit-scrollbar {
+    width: 12px;
+  }
   
-//   *::-webkit-scrollbar-track {
-//     background: rgb(71, 71, 71);
-//   }
+  *::-webkit-scrollbar-track {
+    background: rgb(71, 71, 71);
+  }
   
-//   *::-webkit-scrollbar-thumb {
-//     background-color: rgb(0, 0, 0);
-//     border-radius: 20px;
-//     border: 3px solid rgb(44, 44, 44);
-//   }
+  *::-webkit-scrollbar-thumb {
+    background-color: $couleurNav;
+    border-radius: 20px;
+    border: 3px solid rgb(44, 44, 44);
+  }
 
 * {
 margin: 0;
