@@ -49,7 +49,7 @@ export const ModalConnexion = ({ trigger }) => {
   };
 
   return (
-    <Modal header="Connexion" trigger={trigger}>
+    <Modal header="Connexion" trigger={trigger} options={{preventScrolling: false}}>
       <form onSubmit={sendForm} className="formLogin col s12">
         <div className="row">
           <div className="input-field col s12">

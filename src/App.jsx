@@ -22,7 +22,7 @@ export const App = () => {
   useEffect(() => {
 
     //Initialisation materialize JS
-    M.AutoInit();
+    // M.AutoInit();
 
     if (tokenCookie){
       dispatch(loginCookie(userId, tokenCookie)).then(() => {
