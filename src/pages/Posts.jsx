@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getAllPost } from "../actions/post.actions";
-import { CardPost } from "../components/CardPost";
+import { CardPost } from "../components/Post/CardPost";
 
 export const Posts = () => {
   const posts = useSelector((state) => state.postReducer);

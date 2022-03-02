@@ -5,7 +5,7 @@ import {
   likePost,
   supprimerDislikePost,
   supprimerLikePost,
-} from "../actions/post.actions";
+} from "../../actions/post.actions";
 
 export const LikeDislike = ({ post, totalLikes, totalDislikes }) => {
   const dispatch = useDispatch();

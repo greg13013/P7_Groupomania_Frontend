@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { deletePost } from "../actions/post.actions";
+import { deletePost } from "../../actions/post.actions";
 import { LikeDislike } from "./LikeDislike";
 
 export const CardPost = ({ post, user }) => {
