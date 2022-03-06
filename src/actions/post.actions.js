@@ -3,6 +3,7 @@ import PostDataService from '../services/post.service'
 export const GET_ALL_POST = "GET_ALL_POST"
 export const CREATE_POST = "CREATE_POST"
 export const DELETE_POST = "DELETE_POST"
+export const UPDATE_POST = "UPDATE_POST"
 
 export const LIKE_POST = "LIKE_POST"
 export const SUPPRIMER_LIKE_POST = "SUPPRIMER_LIKE_POST"
@@ -43,6 +44,20 @@ export const getAllPost = () => async (dispatch) => {
       dispatch({
         type: DELETE_POST,
         payload: {postId: id},
+      });
+
+      return Promise.resolve(res.data);
+    } catch (err) {
+      return Promise.reject(err.response.data);
+    }
+  };
+
+  export const updatePost = (contenuPost, id) => async (dispatch) => {
+    try {
+      const res = await PostDataService.update(contenuPost, id);
+      dispatch({
+        type: UPDATE_POST,
+        payload: {contenu: contenuPost, id: id},
       });
 
       return Promise.resolve(res.data);

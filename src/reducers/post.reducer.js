@@ -1,4 +1,4 @@
-import { CREATE_POST, DELETE_POST, DISLIKE_POST, GET_ALL_POST, LIKE_POST, SUPPRIMER_DISLIKE_POST, SUPPRIMER_LIKE_POST } from "../actions/post.actions";
+import { CREATE_POST, DELETE_POST, UPDATE_POST, DISLIKE_POST, GET_ALL_POST, LIKE_POST, SUPPRIMER_DISLIKE_POST, SUPPRIMER_LIKE_POST } from "../actions/post.actions";
 
 
 const initialState = [{}];
@@ -11,6 +11,15 @@ export default function userReducer(state = initialState, action){
             return action.payload.sort((a,b) => b.id - a.id)
         case DELETE_POST:
             return state.filter((post) => post.id !== action.payload.postId);
+        case UPDATE_POST:
+          return state.map((post) => {
+            if (post.id === action.payload.id) {
+              return {
+                ...post,
+                contenu: action.payload.contenu,
+              };
+            } else return post;
+          });
         case LIKE_POST:
             return state.map((post) => {
                 if (post.id === action.payload.postId) {

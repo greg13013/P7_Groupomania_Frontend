@@ -39,8 +39,8 @@ class PostDataService {
         }) 
     }
 
-    update(postData, id){
-        return API.put(`${endpoint}/${id}`, postData, {
+    update(contenuPost, id){
+        return API.put(`${endpoint}/${id}`, {contenu: contenuPost}, {
             headers: {
                 'Authorization': `token ${getToken()}`
             }

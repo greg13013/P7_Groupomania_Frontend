@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Button } from "react-materialize";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { DarkModeContext } from "../context/DarkModeContext";
@@ -87,7 +86,7 @@ export const Sidebar = () => {
       >
 
        <SwitchDarkMode />
-       
+
         {user.isLog ? (
           <div className={darkMode ? "sideBar-user row darkSideBar-user" : "sideBar-user row"}>
             <img src={user.image} alt="logo utilisateur" className="col s9 circle responsive-img" />
