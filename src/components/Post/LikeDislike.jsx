@@ -21,6 +21,7 @@ export const LikeDislike = ({ post, totalLikes, totalDislikes }) => {
       var tabLike = post.Like;
       var tabDislike = post.Dislike;
 
+      //Verifie si l'utilisateur a déjà like ou dislike
       tabLike.some((element) => element.id === user.id) ? setSiLike(true) : setSiLike(false);
       tabDislike.some((element) => element.id === user.id)
         ? setSiDislike(true)

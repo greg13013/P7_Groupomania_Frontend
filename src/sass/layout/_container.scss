@@ -33,6 +33,16 @@
     font-size: 20px;
 }
 
+.commentaire{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $couleurGris;
+    img{
+        width: 50px;
+        margin: 5px;
+    }
+}
+
 
 @include responsive(mobile){
     .global-container{

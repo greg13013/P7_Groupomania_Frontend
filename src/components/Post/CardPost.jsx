@@ -3,7 +3,9 @@ import { Button } from "react-materialize";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { deletePost, updatePost } from "../../actions/post.actions";
+import { Commentaires } from "./Commentaires";
 import { LikeDislike } from "./LikeDislike";
+import { ModalCommentaires } from "./ModalCommentaires";
 
 export const CardPost = ({ post, user }) => {
   const dispatch = useDispatch();
@@ -35,22 +37,33 @@ export const CardPost = ({ post, user }) => {
 
   const sendForm = (e) => {
     e.preventDefault();
-    dispatch(updatePost(contenu, post.id)).then(res => {
-      console.log(res);
-      setEditToggle(false)
-    }).catch(err => {
-      console.log(err);
-    })
+    dispatch(updatePost(contenu, post.id))
+      .then((res) => {
+        console.log(res);
+        setEditToggle(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+
+  const trigger = (
+    <div>
+      <i className="fa-regular fa-user"></i>
+      <span>Ajouter un commentaire</span>
+    </div>
+  );
+
+  
 
   return (
     <div className="cardPerso cardPost centrerContainer flexColumn">
-      {userConnecter.id === userId && (
+      {userConnecter.id === userId || userConnecter.admin ? (
         <div className="profilIcon">
           <i className="fa-solid fa-pen margin1REM" onClick={() => toggleUpdate()}></i>
           <i className="fa-solid fa-trash-can" onClick={() => toggleDelete()}></i>
         </div>
-      )}
+      ) : null}
       <div className="card-img-user">
         <img src={userImage} alt={userImage} className="circle responsive-img" />
       </div>
@@ -63,13 +76,13 @@ export const CardPost = ({ post, user }) => {
           <form onSubmit={sendForm}>
             <div className="row">
               <div className="input-field col s12">
-              <textarea
-                name="contenu"
-                id="contenu"
-                onChange={(e) => setContenu(e.target.value)}
-                value={contenu}
-                className="materialize-textarea"
-              />
+                <textarea
+                  name="contenu"
+                  id="contenu"
+                  onChange={(e) => setContenu(e.target.value)}
+                  value={contenu}
+                  className="materialize-textarea"
+                />
                 <label className="active" htmlFor="contenu">
                   Contenu
                 </label>
@@ -82,6 +95,10 @@ export const CardPost = ({ post, user }) => {
         )}
       </div>
       <div className="card-footer">Crée le {post.createdAt}</div>
+
+
+      <ModalCommentaires trigger={trigger} postId={post.id} />
+          <Commentaires post={post} />
 
       <LikeDislike totalDislikes={totalDislikes} totalLikes={totalLikes} post={post} />
     </div>
