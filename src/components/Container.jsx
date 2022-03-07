@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
+import { DarkModeContext } from "../context/DarkModeContext";
 import { Accueil } from "../pages/Accueil";
 import { Admin } from "../pages/Admin";
 import { FormCreerCompte } from "../pages/FormCreerCompte";
@@ -10,9 +11,10 @@ import { NavTop } from "./NavTop";
 
 export const Container = () => {
   const user = useSelector((state) => state.userReducer);
+  const {darkMode} = useContext(DarkModeContext)
 
   return (
-    <div>
+    <div className={darkMode ? "darkGlobal" : null}>
       <NavTop />
       <main className="main-container">
         <Routes>

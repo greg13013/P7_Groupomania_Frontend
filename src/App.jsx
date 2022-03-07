@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Container } from "./components/Container";
 import { Sidebar } from "./components/Sidebar";
 
@@ -10,15 +10,12 @@ import { getUser, loginCookie } from "./actions/user.actions";
 
 //Import librairie utilisation cookie pour recup token
 import cookie from "js-cookie";
-import { DarkModeContext } from "./context/DarkModeContext";
 
 export const App = () => {
   const dispatch = useDispatch();
 
   const tokenCookie = cookie.get("jwt");
   const userId = cookie.get("userId");
-
-  const {darkMode} = useContext(DarkModeContext)
 
   //Si token dans cookie, connexion automatique
   useEffect(() => {
@@ -38,7 +35,7 @@ export const App = () => {
   }, []);
 
   return (
-      <div className={darkMode ? "global-container darkGlobal" : "global-container"}>
+      <div className="global-container">
         <Sidebar />
         <Container />
       </div>

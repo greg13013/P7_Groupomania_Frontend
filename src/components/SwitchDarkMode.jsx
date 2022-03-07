@@ -12,10 +12,10 @@ export const SwitchDarkMode = () => {
   return (
     <div className="switch">
       <label>
-        Light
+      <i className="fa-solid fa-sun"></i>
         <input type="checkbox" onChange={(e) => toggleSwitchDarkMode()} />
         <span className="lever"></span>
-        Dark
+        <i className="fa-solid fa-moon"></i>
       </label>
     </div>
   );
