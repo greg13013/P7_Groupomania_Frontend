@@ -48,8 +48,8 @@ export const CardPost = ({ post, user }) => {
   };
 
   const trigger = (
-    <div>
-      <i className="fa-regular fa-user"></i>
+    <div className="btnAjoutCommentaire">
+      <i className="fa-solid fa-pen"></i>
       <span>Ajouter un commentaire</span>
     </div>
   );

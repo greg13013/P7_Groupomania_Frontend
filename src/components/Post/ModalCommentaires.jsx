@@ -15,6 +15,7 @@ export const ModalCommentaires = ({ trigger, postId }) => {
       dispatch(createCommentaire(contenu, postId))
         .then((res) => {
           console.log(res);
+        setContenu(null)
         })
         .catch((err) => {
           console.log(err);

@@ -67,3 +67,37 @@
     right: 0;
     font-size: 12px;
 }
+
+.commentaire{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $couleurGris;
+    padding: 6px;
+    img{
+        width: 50px;
+        margin: 5px;
+    }
+}
+
+.btnAjoutCommentaire{
+    border: 1px solid $couleurGris;
+    box-shadow: 0px 0px 10px 5px $couleurGris;
+    border-radius: 16px;
+    padding: 16px;
+    cursor: pointer;
+    .fa-solid{
+        margin: 6px;
+    }
+}
+
+.collapseCommentaire{
+    margin-bottom: 45px;
+    border: 1px solid $couleurGris !important;
+    .collapsible-header{
+        background-color: transparent !important;
+        border-bottom: none !important
+    }
+    .collapsible-body{
+        border-bottom: none !important
+    }
+}

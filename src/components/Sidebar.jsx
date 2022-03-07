@@ -21,7 +21,6 @@ export const Sidebar = () => {
               darkMode ? "sideBar hide-on-med-and-down darkSideBar" : "sideBar hide-on-med-and-down"
             }
           >
-            
             <SwitchDarkMode />
 
             <div className="sideBar-logo">
@@ -84,8 +83,7 @@ export const Sidebar = () => {
         className={darkMode ? "sidenav sidenav-close darkSideBar" : "sidenav sidenav-close"}
         id="mobile-demo"
       >
-
-       <SwitchDarkMode />
+        <SwitchDarkMode />
 
         {user.isLog ? (
           <div className={darkMode ? "sideBar-user row darkSideBar-user" : "sideBar-user row"}>
@@ -94,6 +92,16 @@ export const Sidebar = () => {
             <div>{user.email}</div>
           </div>
         ) : null}
+        {user.admin === true && (
+          <NavLink
+            activeclass="active"
+            to="/admin"
+            className={darkMode ? "bloc-link darkBloc-link" : "bloc-link"}
+          >
+            <i className="fa-solid fa-crown"></i>
+            <span className="nav-links">Administration</span>
+          </NavLink>
+        )}
         <NavLink
           activeclass="active"
           to="/profil"
