@@ -40,6 +40,9 @@ export const Commentaires = ({ post }) => {
                       alt={commentaire.user.image}
                     />
                     {commentaire.contenu}
+                    <div className="commentaire-footer">
+                      Crée le {commentaire.createdAt}
+                    </div>
                   </div>
                 );
               });

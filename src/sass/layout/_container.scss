@@ -33,28 +33,6 @@
     font-size: 20px;
 }
 
-.commentaire{
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid $couleurGris;
-    padding: 6px;
-    img{
-        width: 50px;
-        margin: 5px;
-    }
-}
-
-.btnAjoutCommentaire{
-    border: 1px solid $couleurGris;
-    border-radius: 16px;
-    padding: 16px;
-    cursor: pointer;
-}
-
-.collapseCommentaire{
-    margin-bottom: 45px;
-}
-
 
 @include responsive(mobile){
     .global-container{
