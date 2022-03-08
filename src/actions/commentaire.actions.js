@@ -33,12 +33,12 @@ export const getCommentaire = (postId) => async (dispatch) => {
     }
   };
 
-  export const deleteCommentaire = (id) => async (dispatch) => {
+  export const deleteCommentaire = (idCommentaire) => async (dispatch) => {
     try {
-      const res = await CommentaireDataService.delete(id);
+      const res = await CommentaireDataService.delete(idCommentaire);
       dispatch({
         type: DELETE_COMMENTAIRE,
-        payload: {postId: id},
+        payload: {commentaireId: idCommentaire},
       });
 
       return Promise.resolve(res.data);

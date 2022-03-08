@@ -30,8 +30,8 @@ class CommentaireDataService {
         })
     }
 
-    delete(id) {
-        return API.delete(`${endpoint}/${id}`, {
+    delete(idCommentaire) {
+        return API.delete(`${endpoint}/${idCommentaire}`, {
             headers: {
                 'Authorization': `token ${getToken()}`
             }

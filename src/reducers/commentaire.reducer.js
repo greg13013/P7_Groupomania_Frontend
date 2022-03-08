@@ -1,4 +1,4 @@
-import { CREATE_COMMENTAIRE, GET_COMMENTAIRE } from "../actions/commentaire.actions";
+import { CREATE_COMMENTAIRE, DELETE_COMMENTAIRE, GET_COMMENTAIRE } from "../actions/commentaire.actions";
 
 const initialState = [];
 
@@ -16,8 +16,10 @@ export default function userReducer(state = initialState, action){
             })
         case GET_COMMENTAIRE:
             return [...state, action.payload]
-        // case DELETE_POST:
-        //     return state.filter((post) => post.id !== action.payload.postId);
+        case DELETE_COMMENTAIRE:
+            return state.map(array => {
+                return array.filter((commentaire) => commentaire.id !== action.payload.commentaireId);
+            })
         // case UPDATE_POST:
         //   return state.map((post) => {
         //     if (post.id === action.payload.id) {
