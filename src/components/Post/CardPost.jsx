@@ -71,7 +71,7 @@ export const CardPost = ({ post, user }) => {
       <div className="card-header col s12 centrerContainer">
         <img src={post.image} alt={post.image} className="responsive-img" />
       </div>
-      <div className="card-contenu">
+      <div className={editToggle ? "card-contenu col s12" : "card-contenu"}>
         {editToggle ? (
           <form onSubmit={sendForm}>
             <div className="row">
