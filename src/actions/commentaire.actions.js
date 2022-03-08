@@ -29,7 +29,7 @@ export const getCommentaire = (postId) => async (dispatch) => {
       });
       return Promise.resolve(res.data);
     } catch (err) {
-      return Promise.reject(err.response);
+      return Promise.reject(err);
     }
   };
 
