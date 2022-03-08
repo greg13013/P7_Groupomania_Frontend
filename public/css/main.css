@@ -398,10 +398,17 @@ nav {
   margin: 16px;
 }
 
-.card-footer {
+.card-created {
   position: absolute;
   bottom: 0;
   right: 0;
+  font-size: 12px;
+}
+
+.card-updated {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
   font-size: 12px;
 }
 

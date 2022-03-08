@@ -66,7 +66,7 @@ export const Commentaires = ({ post }) => {
                         ></i>
                       </div>
                     ) : null}
-                    <div className="commentaire-footer">Crée le {commentaire.createdAt}</div>
+                    <div className="commentaire-footer">Crée le {new Date(commentaire.createdAt).toLocaleDateString("fr", { hour: 'numeric', minute: 'numeric', second: 'numeric' })}</div>
                   </div>
                 );
               });

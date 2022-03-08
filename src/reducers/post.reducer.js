@@ -8,7 +8,7 @@ export default function userReducer(state = initialState, action){
         case CREATE_POST:
             return [...state, action.payload]
         case GET_ALL_POST:
-            return action.payload.sort((a,b) => b.id - a.id)
+            return action.payload
         case DELETE_POST:
             return state.filter((post) => post.id !== action.payload.postId);
         case UPDATE_POST:

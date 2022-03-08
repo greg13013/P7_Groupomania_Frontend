@@ -94,7 +94,8 @@ export const CardPost = ({ post, user }) => {
           post.contenu
         )}
       </div>
-      <div className="card-footer">Crée le {post.createdAt}</div>
+      <div className="card-created">Crée le {new Date(post.createdAt).toLocaleDateString("fr", { hour: 'numeric', minute: 'numeric', second: 'numeric' })}</div>
+      <div className="card-updated">Modifié le {new Date(post.updatedAt).toLocaleDateString("fr", { hour: 'numeric', minute: 'numeric', second: 'numeric' })}</div>
 
 
       <ModalCommentaires trigger={trigger} postId={post.id} />
