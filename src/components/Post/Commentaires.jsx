@@ -12,15 +12,27 @@ export const Commentaires = ({ post }) => {
 
   const afficherCommentaire = () => {
     if (!load) {
-      dispatch(getCommentaire(post.id))
+      let check
+      commentaireData.forEach((array, index) => {
+
+        //Vérifie si les commentaires sont déjà chargé dans le store
+        check = array.some(element => element.postId === post.id)
+
+        console.log(check);
+        setLoad(true)
+      })
+      if (!check) {
+
+        dispatch(getCommentaire(post.id))
         .then((res) => {
-
+          
           setLoad(true);
-
+          
         })
         .catch((err) => {
           console.log(err);
         });
+      }
     }
   };
 
@@ -31,6 +43,7 @@ export const Commentaires = ({ post }) => {
           commentaireData.map((array) => {
             return array
               .filter((element) => element.postId === post.id)
+              .sort((a,b) => a.id - b.id)
               .map((commentaire, index) => {
                 return (
                   <div className="commentaire" key={index}>

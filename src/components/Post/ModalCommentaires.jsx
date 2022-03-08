@@ -4,7 +4,9 @@ import { useDispatch } from "react-redux";
 import { createCommentaire } from "../../actions/commentaire.actions";
 
 export const ModalCommentaires = ({ trigger, postId }) => {
-  const [contenu, setContenu] = useState(null);
+  const [contenu, setContenu] = useState('');
+  const [openModal, setOpenModal] = useState(null)
+
   const dispatch = useDispatch();
 
   const sendForm = (e) => {
@@ -15,7 +17,8 @@ export const ModalCommentaires = ({ trigger, postId }) => {
       dispatch(createCommentaire(contenu, postId))
         .then((res) => {
           console.log(res);
-        setContenu(null)
+          setContenu('')
+          setOpenModal(false)
         })
         .catch((err) => {
           console.log(err);
@@ -24,7 +27,7 @@ export const ModalCommentaires = ({ trigger, postId }) => {
   };
 
   return (
-    <Modal header="Ajouter un commentaire" trigger={trigger} options={{ preventScrolling: false }}>
+    <Modal header="Ajouter un commentaire" open={openModal} trigger={trigger} options={{ preventScrolling: false }}>
       <form onSubmit={sendForm}>
         <div className="row">
           <div className="input-field col s12">
@@ -33,6 +36,7 @@ export const ModalCommentaires = ({ trigger, postId }) => {
               id="contenu"
               onChange={(e) => setContenu(e.target.value)}
               className="materialize-textarea"
+              value={contenu}
             />
             <label className="active" htmlFor="contenu">
               Contenu

@@ -7,8 +7,9 @@ export default function userReducer(state = initialState, action){
         case CREATE_COMMENTAIRE:
             return state.map(array => {
                 console.log('map commentaire action', array);
+                console.log('action commentaire action', action.payload);
                 if (array[0].postId === action.payload.postId){
-                    return [...array, action.payload.res]
+                    return [...array, action.payload.res[0]]
                 }
 
                     else return array
