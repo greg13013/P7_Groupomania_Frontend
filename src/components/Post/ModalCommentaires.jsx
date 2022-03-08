@@ -11,8 +11,7 @@ export const ModalCommentaires = ({ trigger, postId }) => {
 
   const sendForm = (e) => {
     e.preventDefault();
-    console.log(contenu);
-    console.log(postId);
+
     if (contenu) {
       dispatch(createCommentaire(contenu, postId))
         .then((res) => {

@@ -18,7 +18,7 @@ export const Commentaires = ({ post }) => {
         //Vérifie si les commentaires sont déjà chargé dans le store
         check = array.some((element) => element.postId === post.id);
 
-        console.log(check);
+        // console.log(check);
         setLoad(true);
       });
       if (!check) {
