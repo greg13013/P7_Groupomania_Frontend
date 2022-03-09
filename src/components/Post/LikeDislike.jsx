@@ -27,6 +27,7 @@ export const LikeDislike = ({ post, totalLikes, totalDislikes }) => {
         ? setSiDislike(true)
         : setSiDislike(false);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [post.Like, post.Dislike]);
 
   const toggleLike = () => {

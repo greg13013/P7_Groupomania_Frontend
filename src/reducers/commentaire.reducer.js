@@ -8,6 +8,7 @@ export default function commentaireReducer(state = initialState, action){
             
             var exist = false
             //Check si les commentaires du post sont présent dans le store, met a true si oui
+            // eslint-disable-next-line array-callback-return
             state.map(array => {
                 let check = array.some((element) => element.postId === action.payload.postId);
 
